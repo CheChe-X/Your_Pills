@@ -17,6 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.TextView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,7 +29,8 @@ public class HomeActivity extends AppCompatActivity {
     FirebaseUser user;
     private CalendarView calendarView;
     private String selectedDate;
-    private Button rotina, login1, logout;
+    private Button rotina, login1;
+    private TextView logout;
     private BottomNavigationView BottomMenu;
 
 
@@ -49,7 +51,7 @@ public class HomeActivity extends AppCompatActivity {
         calendarView = findViewById(R.id.calendarView);
         rotina = (Button) findViewById(R.id.rotina);
         login1 = (Button) findViewById(R.id.login1);
-        logout = (Button) findViewById(R.id.logout);
+        logout = (TextView) findViewById(R.id.logout);
         BottomMenu = findViewById(R.id.BottomMenu);
         BottomMenu.setSelectedItemId(item2);
         BottomMenu.setSelectedItemId(item3);

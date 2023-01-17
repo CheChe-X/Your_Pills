@@ -27,7 +27,7 @@ import com.google.firebase.ktx.Firebase;
 
 public class MainActivity extends AppCompatActivity {
 
-    private EditText email1, password1;
+    private EditText memail, mpassword;
     private Button singin;
     private TextView singup, voltar;
     FirebaseAuth mAuth;
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mAuth = FirebaseAuth.getInstance();
-        email1 = (EditText) findViewById(R.id.conta);
-        password1 = (EditText) findViewById(R.id.password);
+        memail = (EditText) findViewById(R.id.conta);
+        mpassword = (EditText) findViewById(R.id.password);
         singin = (Button) findViewById(R.id.btnlogin);
         singup = (TextView) findViewById(R.id.btnsingup);
         voltar = (TextView) findViewById(R.id.voltar4);
@@ -62,8 +62,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String email, password;
-                email = String.valueOf(email1.getText());
-                password = String.valueOf(password1.getText());
+                email = String.valueOf(memail.getText());
+                password = String.valueOf(mpassword.getText());
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(MainActivity.this, "Insira o seu Email", Toast.LENGTH_SHORT).show();

@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Entrar aqui na sua conta"
+        android:text="Entre na sua conta"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -53,6 +53,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginBottom="50dp"
         android:hint="Palavra passe"
+        android:inputType="textPassword"
         android:textColor="@color/black"
         android:minHeight="48dp" />
 

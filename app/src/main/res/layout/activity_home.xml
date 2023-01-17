@@ -40,19 +40,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:text="Login"
+        android:text="Conta"
+        android:textAlignment="center"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/calendarView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/comp"
-        tools:ignore="MissingConstraints"
-        android:textAlignment="center"/>
+        app:layout_constraintVertical_bias="0.352"
+        tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/logout"
         android:layout_width="44dp"
         android:layout_height="28dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="30dp"
         android:text="Sair"
         android:textColor="@color/black"
