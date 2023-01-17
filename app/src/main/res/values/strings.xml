@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">YourPills</string>
+    <string name="title_activity_homepage">login</string>
+    <string name="title_calendario">Calendário</string>
+    <string name="title_comprimidos">Comprimidos</string>
+    <string name="title_receitas">Receitas</string>
+</resources>

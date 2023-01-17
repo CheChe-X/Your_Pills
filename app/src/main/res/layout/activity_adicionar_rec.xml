@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AdicionarRecActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Faça aqui a sua Receita"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
+        tools:ignore="MissingConstraints" />
+
+
+    <EditText
+        android:id="@+id/nome_receita"
+        android:layout_width="385dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="40dp"
+        android:hint="Nome da Receita"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/n_utente"
+        android:layout_width="195dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:hint="Nº Utente"
+        android:minHeight="48dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/telemovel1"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="80dp"
+        android:hint="Número de Telemóvel"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/entidade_responsavel"
+        android:layout_width="393dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="116dp"
+        android:hint="Entidade Responsável"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/n_beneficiario"
+        android:layout_width="393dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="152dp"
+        android:hint="Nº Beneficiaário"
+        android:minHeight="48dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/n_medico"
+        android:layout_width="195dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:hint="Nº Médico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/especialidade"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="188dp"
+        android:ems="10"
+        android:hint="Especialidade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/contacto"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="224dp"
+        android:ems="10"
+        android:hint="Contacto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/des_medicamento"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="260dp"
+        android:ems="10"
+        android:hint="Designação do Medicamento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/dosagem"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="296dp"
+        android:ems="10"
+        android:hint="Dosagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/forma_farmaceutica"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="332dp"
+        android:ems="10"
+        android:hint="Forma Farmacêutica"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/dimensao_embalagem"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="368dp"
+        android:ems="10"
+        android:hint="Dimensão da Embalagem"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/numero"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="404dp"
+        android:ems="10"
+        android:hint="Número"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/Extenso"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="440dp"
+        android:ems="10"
+        android:hint="Extenso"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/validade"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="476dp"
+        android:ems="10"
+        android:hint="Validade"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/data"
+        android:layout_width="393dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="512dp"
+        android:ems="10"
+        android:hint="Data"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.444"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view4"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/inserir1"
+        android:layout_width="62dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:text="+"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/voltar3"
+        android:layout_width="119dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="20dp"
+        android:text="voltar"
+        android:textColor="@color/black"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

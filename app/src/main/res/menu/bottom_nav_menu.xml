@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/item2"
+        android:icon="@drawable/ic_baseline_calendar_month_24"
+        android:title="@string/title_calendario"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/item3"
+        android:icon="@drawable/pill"
+        android:title="@string/title_comprimidos"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/item4"
+        android:icon="@drawable/note"
+        android:title="@string/title_receitas"
+        app:showAsAction="never"
+        />
+
+</menu>

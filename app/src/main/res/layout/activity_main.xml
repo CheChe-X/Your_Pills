@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="18dp"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Entrar aqui na sua conta"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@id/view"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_below="@id/ok"
+        android:layout_gravity="center"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <EditText
+        android:id="@+id/conta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/view"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="25dp"
+        android:hint="Email/telemóvel"
+        android:textColor="@color/black"
+        android:minHeight="48dp" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/conta"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="50dp"
+        android:hint="Palavra passe"
+        android:textColor="@color/black"
+        android:minHeight="48dp" />
+
+    <Button
+        android:id="@+id/btnlogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/conta"
+        android:layout_marginTop="75dp"
+        android:layout_marginBottom="50dp"
+        android:text="Entrar"
+        android:textSize="17dp"/>
+
+
+    <TextView
+        android:id="@+id/btnsingup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_below="@+id/view"
+        android:layout_marginTop="225dp"
+        android:text="Criar uma conta"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:textAlignment="center"/>
+
+    <TextView
+        android:id="@+id/voltar4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="255dp"
+        android:layout_marginBottom="50dp"
+        android:text="Voltar"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        android:layout_below="@+id/view"
+        android:textAlignment="center"/>
+
+</RelativeLayout>

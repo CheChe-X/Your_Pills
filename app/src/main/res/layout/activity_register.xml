@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    android:padding="18dp"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="Crie aqui a sua conta"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+        android:textStyle="bold" />
+
+    <View
+        android:layout_below="@+id/ok"
+        android:layout_width="320dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="46dp"
+        android:layout_marginEnd="46dp"
+        android:layout_gravity="center"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="50dp" />
+
+    <EditText
+        android:id="@+id/username1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ok"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Nome completo"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/conta1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Email"
+        android:textColor="@color/black"
+        android:layout_below="@id/username1"
+        />
+
+    <EditText
+        android:id="@+id/numero1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/username1"
+        android:layout_marginTop="65dp"
+        android:layout_marginBottom="20dp"
+        android:hint="Número de Telemovel"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/idade"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/numero1"
+        android:layout_marginBottom="20dp"
+        android:hint="idade"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:hint="Palavra passe"
+        android:textColor="@color/black"
+        android:inputType="textPassword"
+        android:layout_below="@id/idade"
+        />
+
+    <EditText
+        android:id="@+id/repassword1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/black"
+        android:hint="Insira de novo a palavra passe"
+        android:inputType="textPassword"
+        android:layout_below="@id/password1"
+        />
+
+
+    <Button
+        android:id="@+id/btnsingup1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Registrar"
+        android:layout_below="@id/repassword1"
+        android:layout_marginBottom="50dp"
+        />
+
+    <TextView
+        android:id="@+id/voltar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btnsingup1"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="-50dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="20dp"
+        android:text="Voltar"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="17dp"
+        />
+
+
+</RelativeLayout>
