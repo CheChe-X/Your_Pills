@@ -58,15 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         BottomMenu.setSelectedItemId(item4);
 
         user = auth.getCurrentUser();
-        if (user == null){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-            startActivity(intent);
-            finish();
-        }
-        else {
-
-        }
-
+        
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

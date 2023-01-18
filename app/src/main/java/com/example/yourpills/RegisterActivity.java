@@ -20,7 +20,9 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.auth.User;
 import com.google.firebase.ktx.Firebase;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -31,7 +33,7 @@ import java.util.Map;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    public static final String TAG = "TAG";
+        public static final String TAG = "TAG";
         private EditText musername, memail, mtelemovel, midade, mpassword, mrepassword;
         private TextView voltar;
         private Button btnsign;
@@ -80,27 +82,49 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onClick(View view) {
 
 
-                    String username2, conta, numero, idade2, password2, repassword2;
+                    String nome, conta, numero, idade, password2, repassword;
 
-                    username2 = String.valueOf(musername.getText());
-                    conta = String.valueOf(memail.getText());
-                    numero = String.valueOf(mtelemovel.getText());
-                    idade2= String.valueOf(midade.getText());
-                    password2 = String.valueOf(mpassword.getText());
-                    repassword2 = String.valueOf(mrepassword.getText());
+                    nome = (musername.getText().toString().trim());
+                    conta = (memail.getText().toString().trim());
+                    numero = (mtelemovel.getText().toString().trim());
+                    idade= (midade.getText().toString().trim());
+                    password2 = (mpassword.getText().toString().trim());
+                    repassword = (mrepassword.getText().toString().trim());
 
-                    if (TextUtils.isEmpty(conta)) {
-                        Toast.makeText(RegisterActivity.this, "Escreva o seu Email", Toast.LENGTH_SHORT).show();
+                    if (nome.isEmpty()) {
+                        musername.setError("Escreva seu nome");
+                        musername.requestFocus();
                         return;
                     }
 
-                    if (TextUtils.isEmpty(password2)){
-                        Toast.makeText(RegisterActivity.this, "Introduza a sua Palavra Passe ", Toast.LENGTH_SHORT).show();
+                    if (conta.isEmpty()){
+                        memail.setError("Escreva o seu email");
+                        memail.requestFocus();
+                        return;
+                    }
+
+                    if(numero.isEmpty()){
+                        mtelemovel.setError("Insira seu número");
+                        mtelemovel.requestFocus();
+                        return;
+                    }
+
+                    if(idade.isEmpty()){
+                        midade.setError("Sua idade porfavor");
+                        midade.requestFocus();
+                        return;
+                    }
+
+                    if(password2.isEmpty()){
+                        mpassword.setError("Introduza uma palavra passe");
+                        mpassword.requestFocus();
                         return;
                     }
 
                     if (password2.length() < 6){
                         mpassword.setError("A palavra passe deve ter mais que 6 caracter");
+                        mpassword.requestFocus();
+                        return;
                     }
 
                     String email = memail.getText().toString();
@@ -110,34 +134,34 @@ public class RegisterActivity extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
-                                        Toast.makeText(RegisterActivity.this, "Conta criada.",
-                                                Toast.LENGTH_SHORT).show();
-                                        usersID = mAuth.getCurrentUser().getUid();
-                                        DocumentReference documentReference = fstore.collection("users").document(usersID);
-                                        Map<String,Object> user = new HashMap<>();
-                                        user.put("nome", musername);
-                                        user.put("email", memail);
-                                        user.put("numero_telemovel", mtelemovel);
-                                        user.put("idade", midade);
-                                        user.put("password", mpassword);
-                                        documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                            @Override
-                                            public void onSuccess(Void unused) {
-                                                Log.d(TAG, "OnSucess: Perfil de usuário criado "+ usersID);
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                Log.d(TAG, "OnFailure: "+ e.toString());
-                                            }
-                                        });
-                                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                        startActivity(intent);
-                                        finish();
-                                    } else {
-                                        // If sign in fails, display a message to the user.
-                                        Toast.makeText(RegisterActivity.this, "Erro.",
-                                                Toast.LENGTH_SHORT).show();
+
+                                        user user = new user(nome, conta, numero, idade);
+                                        FirebaseDatabase.getInstance().getReference("Users")
+                                                .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                                .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                                    @Override
+                                                    public void onComplete(@NonNull Task<Void> task) {
+                                                        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+                                                        if (user.isEmailVerified()){
+                                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                                            startActivity(intent);
+                                                            finish();
+                                                        }else{
+                                                            user.sendEmailVerification();
+                                                            Toast.makeText(RegisterActivity.this, "Verifique o seu email para verificar o seu email", Toast.LENGTH_SHORT).show();
+                                                        }
+
+                                                        if (task.isSuccessful()) {
+                                                            Toast.makeText(RegisterActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
+
+                                                        }else{
+                                                            Toast.makeText(RegisterActivity.this, "Erro! tente de novo!", Toast.LENGTH_SHORT).show();
+                                                        }
+                                                    }
+                                                });
+                                    }else{
+                                        Toast.makeText(RegisterActivity.this, "Erro ao registrar!", Toast.LENGTH_SHORT).show();
                                     }
                                 }
                             });

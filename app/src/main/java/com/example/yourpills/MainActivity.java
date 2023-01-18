@@ -29,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText memail, mpassword;
     private Button singin;
-    private TextView singup, voltar;
-    FirebaseAuth mAuth;
+    private TextView singup, resetpassword,voltar;
+    private FirebaseAuth mAuth;
 
     @Override
     public void onStart() {
@@ -54,16 +54,15 @@ public class MainActivity extends AppCompatActivity {
         mpassword = (EditText) findViewById(R.id.password);
         singin = (Button) findViewById(R.id.btnlogin);
         singup = (TextView) findViewById(R.id.btnsingup);
+        resetpassword = (TextView) findViewById(R.id.resetpassword);
         voltar = (TextView) findViewById(R.id.voltar4);
-
-
 
         singin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email, password;
-                email = String.valueOf(memail.getText());
-                password = String.valueOf(mpassword.getText());
+                email = (memail.getText().toString().trim());
+                password = (mpassword.getText().toString().trim());
 
                 if(TextUtils.isEmpty(email)){
                     Toast.makeText(MainActivity.this, "Insira o seu Email", Toast.LENGTH_SHORT).show();
@@ -90,6 +89,8 @@ public class MainActivity extends AppCompatActivity {
                                             Toast.LENGTH_SHORT).show();
 
                                 }
+
+
                             }
                         });
 
@@ -103,6 +104,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        resetpassword.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ResetPasswordActivity.class);
+                startActivity(intent);
+            }
+        });
+
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
