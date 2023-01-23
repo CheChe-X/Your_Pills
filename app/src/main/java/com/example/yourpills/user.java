@@ -1,5 +1,7 @@
 package com.example.yourpills;
 
+//com este código vamos fazer a declaração do user
+//e aqui vão ser definidas as variáveis nome, conta, numero e idade
 public class user {
 
     public String nome, conta, numero, idade;

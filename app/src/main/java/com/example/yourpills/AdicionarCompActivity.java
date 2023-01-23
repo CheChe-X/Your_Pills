@@ -19,14 +19,31 @@ import android.widget.Button;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.auth.User;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class AdicionarCompActivity extends AppCompatActivity {
 
-    EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
-    Button inserir, voltar;
+    private EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
+    private Button inserir, voltar;
+
+    private FirebaseFirestore firebaseFirestore;
+    DatabaseReference databaseComprimido;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +56,51 @@ public class AdicionarCompActivity extends AppCompatActivity {
         emb_comp = findViewById(R.id.emb_comp);
         data_comp = findViewById(R.id.date_comp);
         inserir = findViewById(R.id.inserir);
-        voltar= findViewById(R.id.voltar2);
+        voltar = findViewById(R.id.voltar2);
 
+        firebaseFirestore = FirebaseFirestore.getInstance();
+        databaseComprimido = FirebaseDatabase.getInstance().getReference();
+
+        inserir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String compnome = name_comp.getText().toString();
+                String compmiligramas = mil_comp.getText().toString();
+                String compembalagens = emb_comp.getText().toString();
+                String compmedicamentos = med_comp.getText().toString();
+                String compdata = data_comp.getText().toString();
+
+                Map<String, String>ComprimidoData= new HashMap<>();
+                ComprimidoData.put("nome", compnome);
+                ComprimidoData.put("miligramas", compmiligramas);
+                ComprimidoData.put("medicamentos", compmedicamentos);
+                ComprimidoData.put("embalagens", compembalagens);
+                ComprimidoData.put("data", compdata);
+
+                firebaseFirestore.collection("Comprimidos").add(ComprimidoData).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                    @Override
+                    public void onComplete(@NonNull Task<DocumentReference> task) {
+                        Toast.makeText(AdicionarCompActivity.this, "Sucesso!", Toast.LENGTH_SHORT).show();
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        String error=e.getMessage();
+
+                        Toast.makeText(AdicionarCompActivity.this, "Erro!"+error , Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+            }
+        });
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ComprimidosActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }

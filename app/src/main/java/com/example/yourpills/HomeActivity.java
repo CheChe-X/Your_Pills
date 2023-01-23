@@ -24,7 +24,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity {
-    // isto é para criar variaveis
     FirebaseAuth auth;
     FirebaseUser user;
     private CalendarView calendarView;
@@ -46,8 +45,9 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        // este código ira procurar no layout o id das variaveis
+
         auth = FirebaseAuth.getInstance();
+        // este código ira procurar no layout o id das variaveis
         calendarView = findViewById(R.id.calendarView);
         rotina = (Button) findViewById(R.id.rotina);
         login1 = (Button) findViewById(R.id.login1);
@@ -58,7 +58,7 @@ public class HomeActivity extends AppCompatActivity {
         BottomMenu.setSelectedItemId(item4);
 
         user = auth.getCurrentUser();
-        
+
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
