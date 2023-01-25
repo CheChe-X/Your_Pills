@@ -4,13 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -19,7 +16,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     private Context context;
     ArrayList<comprimido> comprimidoArrayList;
 
-    public CustomAdapter(Context context, ArrayList<comprimido> comprimidoArrayList) {
+    public CustomAdapter(ArrayList<comprimido> comprimidoArrayList) {
         this.context = context;
         this.comprimidoArrayList = comprimidoArrayList;
     }
@@ -27,10 +24,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @NonNull
     @Override
     public CustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_recyclerview,parent,false);
 
-        View v = LayoutInflater.from(context).inflate(R.layout.my_recyclerview,parent, false);
-
-        return new MyViewHolder(v);
+        return new MyViewHolder(view);
     }
 
     @Override
@@ -38,14 +34,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         comprimido comprimido = comprimidoArrayList.get(position);
 
-        holder.name_comp.setText(comprimido.nome);
-        holder.mil_comp.setText((int) comprimido.miligramas);
-        holder.med_comp.setText((int) comprimido.medicamentos);
-        holder.emb_comp.setText((int) comprimido.embalagens);
-        holder.data_comp.setText((int) comprimido.data);
-
-
-
+        holder.name_comp.setText(comprimidoArrayList.get(position).getNome());
+        holder.mil_comp.setText( comprimidoArrayList.get(position).getMiligramas());
+        holder.med_comp.setText( comprimidoArrayList.get(position).getMedicamentos());
+        holder.emb_comp.setText( comprimidoArrayList.get(position).getEmbalagens());
+        holder.data_comp.setText( comprimidoArrayList.get(position).getData());
     }
 
     @Override
@@ -65,5 +58,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             med_comp = itemView.findViewById(R.id.med_comp_txt);
             data_comp = itemView.findViewById(R.id.date_comp_txt);
         }
+
     }
 }

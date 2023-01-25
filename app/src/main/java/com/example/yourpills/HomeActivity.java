@@ -49,7 +49,7 @@ public class HomeActivity extends AppCompatActivity {
         auth = FirebaseAuth.getInstance();
         // este código ira procurar no layout o id das variaveis
         calendarView = findViewById(R.id.calendarView);
-        rotina = (Button) findViewById(R.id.rotina);
+        rotina = findViewById(R.id.rotina);
         login1 = (Button) findViewById(R.id.login1);
         logout = (TextView) findViewById(R.id.logout);
         BottomMenu = findViewById(R.id.BottomMenu);

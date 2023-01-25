@@ -30,16 +30,27 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.List;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class ReceitasActivity extends AppCompatActivity {
 
-    private FloatingActionButton add1;
-    private Button volta1;
+    private RecyclerView view;
+    private FloatingActionButton add;
+    private ArrayList<receitas> receitasArrayList;
+    private CustomAdapter2 customAdapter2;
+    FirebaseFirestore db;
+
+    private Button volta;
     private BottomNavigationView BottomMenu1;
 
     @Override
@@ -47,13 +58,33 @@ public class ReceitasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_receitas);
 
-
-        volta1 = (Button) findViewById(R.id.voltar1);
-        add1 = findViewById(R.id.add1);
+        receitasArrayList = new ArrayList<receitas>();
+        customAdapter2 = new CustomAdapter2(receitasArrayList);
+        view = findViewById(R.id.view1);
+        view.setLayoutManager(new LinearLayoutManager(this));
+        view.setAdapter(customAdapter2);
+        volta = (Button) findViewById(R.id.voltar1);
+        add = findViewById(R.id.add1);
         BottomMenu1 = findViewById(R.id.BottomMenu1);
         BottomMenu1.setSelectedItemId(R.id.item2);
         BottomMenu1.setSelectedItemId(R.id.item3);
         BottomMenu1.setSelectedItemId(item4);
+
+        db = FirebaseFirestore.getInstance();
+        db.collection("Receitas").get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
+                                for (DocumentSnapshot d:list){
+                                    receitas obj = d.toObject(receitas.class);
+                                    receitasArrayList.add(obj);
+                                }
+                                customAdapter2.notifyDataSetChanged();
+                            }
+                        });
+
+        view.setAdapter(customAdapter2);
 
         BottomMenu1.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -82,7 +113,7 @@ public class ReceitasActivity extends AppCompatActivity {
 
 
 
-        volta1.setOnClickListener(new View.OnClickListener() {
+        volta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent (getApplicationContext(), HomeActivity.class);
@@ -90,7 +121,7 @@ public class ReceitasActivity extends AppCompatActivity {
             }
         });
 
-        add1.setOnClickListener(new View.OnClickListener() {
+        add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent (getApplicationContext(), AdicionarRecActivity.class);

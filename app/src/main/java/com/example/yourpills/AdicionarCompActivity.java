@@ -41,8 +41,8 @@ public class AdicionarCompActivity extends AppCompatActivity {
     private EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
     private Button inserir, voltar;
 
-    private FirebaseFirestore firebaseFirestore;
-    DatabaseReference databaseComprimido;
+    private FirebaseFirestore db;
+
 
 
     @Override
@@ -58,8 +58,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
         inserir = findViewById(R.id.inserir);
         voltar = findViewById(R.id.voltar2);
 
-        firebaseFirestore = FirebaseFirestore.getInstance();
-        databaseComprimido = FirebaseDatabase.getInstance().getReference();
+        db = FirebaseFirestore.getInstance();
 
         inserir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,36 +69,40 @@ public class AdicionarCompActivity extends AppCompatActivity {
                 String compmedicamentos = med_comp.getText().toString();
                 String compdata = data_comp.getText().toString();
 
-                Map<String, String>ComprimidoData= new HashMap<>();
+                Map<String, String> ComprimidoData = new HashMap<>();
                 ComprimidoData.put("nome", compnome);
                 ComprimidoData.put("miligramas", compmiligramas);
                 ComprimidoData.put("medicamentos", compmedicamentos);
                 ComprimidoData.put("embalagens", compembalagens);
                 ComprimidoData.put("data", compdata);
 
-                firebaseFirestore.collection("Comprimidos").add(ComprimidoData).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentReference> task) {
-                        Toast.makeText(AdicionarCompActivity.this, "Sucesso!", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        String error=e.getMessage();
+                db.collection("Comprimidos")
+                        .add(ComprimidoData)
+                        .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                            @Override
+                            public void onSuccess(DocumentReference documentReference) {
 
-                        Toast.makeText(AdicionarCompActivity.this, "Erro!"+error , Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdicionarCompActivity.this, "Criada", Toast.LENGTH_SHORT).show();
+
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                String error = e.getMessage();
+
+                                Toast.makeText(AdicionarCompActivity.this, "Erro!" + error, Toast.LENGTH_SHORT).show();
+
+                            }
+                        });
+
+                voltar.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(getApplicationContext(), ComprimidosActivity.class);
+                        startActivity(intent);
+                        finish();
                     }
                 });
-
-            }
-        });
-
-        voltar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ComprimidosActivity.class);
-                startActivity(intent);
-                finish();
             }
         });
     }
