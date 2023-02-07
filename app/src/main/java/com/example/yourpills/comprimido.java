@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 
 import java.util.Date;
 
+//com este código vamos fazer uma classe java chamada comprimido
 public class comprimido {
 
     public String nome, embalagens, miligramas, medicamentos, data;
@@ -13,6 +14,7 @@ public class comprimido {
         super();
     }
 
+    //e vai ter cinco variáveis chamadas nome, miligramas, embalagens, medicamentos e data
     public comprimido(String nome, String miligramas, String embalagens, String medicamentos, String data){
         this.nome = nome;
         this.miligramas = miligramas;
@@ -21,6 +23,9 @@ public class comprimido {
         this.data = data;
     }
 
+    //neste código temos o métodos de acesso "getters" e métodos de atribuição "setters"
+    //em que um dos métodos vai retornar o valor atual de uma variável e o outro vai ser o que define um novo valor
+    //e assim estes métodos permitem que outras classes tenham acesso e possam modificar
     public String getNome() {
         return nome;
     }

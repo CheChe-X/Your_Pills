@@ -1,5 +1,9 @@
 package com.example.yourpills;
 
+import androidx.annotation.NonNull;
+
+import java.util.Date;
+
 public class receitas {
 
     public String nome_receita, entidade_responsavel, especialidade, designacao_medicamento, forma_farmaceutica,
@@ -7,7 +11,7 @@ public class receitas {
             extenso, validade, data;
 
     public receitas(){
-
+        super();
     }
 
     public receitas(String nome_receita, String entidade_responsavel, String especialidade, String designacao_medicamento,

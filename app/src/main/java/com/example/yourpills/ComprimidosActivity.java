@@ -30,7 +30,6 @@ import java.util.List;
 
 public class ComprimidosActivity extends AppCompatActivity {
 
-
     private RecyclerView view;
     private FloatingActionButton add;
     private ArrayList<comprimido> comprimidoArrayList;
@@ -48,6 +47,7 @@ public class ComprimidosActivity extends AppCompatActivity {
 
         comprimidoArrayList = new ArrayList<comprimido>();
         customAdapter = new CustomAdapter(comprimidoArrayList);
+        // este código ira procurar no layout o id das variaveis
         view = findViewById(R.id.view);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(customAdapter);
@@ -58,22 +58,29 @@ public class ComprimidosActivity extends AppCompatActivity {
         BottomMenu2.setSelectedItemId(R.id.item3);
         BottomMenu2.setSelectedItemId(item4);
 
+        //este código vai a Firebase Firestore e vai acessar a coleção comprimidos
         db = FirebaseFirestore.getInstance();
+        //com o get ela vai recuperar todos os dados na coleção
         db.collection("Comprimidos").get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
                             public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                //com o list ela atribui todos os dados retornados
                                 List<DocumentSnapshot> list=queryDocumentSnapshots.getDocuments();
+                                //e com o for ela vai iterar na lista e criar um objeto da classe comprimido
                                 for (DocumentSnapshot d:list){
                                     comprimido obj = d.toObject(comprimido.class);
+                                    //e ela adiciona cada objeto criado à coleção comprimido
                                     comprimidoArrayList.add(obj);
                                 }
                                 customAdapter.notifyDataSetChanged();
                             }
                         });
 
+        //isto vai fazer com o view use o customAdapter para exibir a informaçáo necessaria
         view.setAdapter(customAdapter);
 
+        //com este código cada vez que uma pessoa seleciona na barra de navegação ele ira iniciar a activity
         BottomMenu2.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -103,6 +110,7 @@ public class ComprimidosActivity extends AppCompatActivity {
 
             }
         });
+
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

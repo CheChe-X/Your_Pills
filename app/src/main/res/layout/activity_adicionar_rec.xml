@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Faça aqui a sua Receita"
+        android:text="Crie a sua Receita"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -36,9 +36,10 @@
 
     <EditText
         android:id="@+id/nome_receita"
-        android:layout_width="390dp"
-        android:layout_height="37dp"
-        android:layout_marginTop="40dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="57dp"
         android:hint="Nome da Receita"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -50,9 +51,9 @@
     <EditText
         android:id="@+id/n_utente"
         android:layout_width="195dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="50dp"
         android:hint="Nº Utente"
         android:minHeight="48dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,39 +62,36 @@
 
     <EditText
         android:id="@+id/telemovel1"
-        android:layout_width="393dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="80dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="101dp"
         android:hint="Número de Telemóvel"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/entidade_responsavel"
-        android:layout_width="393dp"
+        android:layout_width="395dp"
         android:layout_height="39dp"
-        android:layout_marginTop="116dp"
+        android:layout_marginTop="144dp"
         android:hint="Entidade Responsável"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/n_beneficiario"
-        android:layout_width="393dp"
+        android:layout_width="395dp"
         android:layout_height="40dp"
-        android:layout_marginTop="152dp"
+        android:layout_marginTop="186dp"
         android:hint="Nº Beneficiário"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
@@ -101,8 +99,8 @@
     <EditText
         android:id="@+id/n_medico"
         android:layout_width="195dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Nº Médico"
@@ -112,132 +110,122 @@
 
     <EditText
         android:id="@+id/especialidade"
-        android:layout_width="393dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="188dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="229dp"
         android:ems="10"
         android:hint="Especialidade"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/contacto"
-        android:layout_width="393dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="224dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="272dp"
         android:ems="10"
         android:hint="Contacto"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/des_medicamento"
-        android:layout_width="393dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="260dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="315dp"
         android:ems="10"
         android:hint="Designação do Medicamento"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/dosagem"
-        android:layout_width="393dp"
+        android:layout_width="395dp"
         android:layout_height="38dp"
-        android:layout_marginTop="296dp"
+        android:layout_marginTop="358dp"
         android:ems="10"
         android:hint="Dosagem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/forma_farmaceutica"
-        android:layout_width="393dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="332dp"
+        android:layout_width="395dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="398dp"
         android:ems="10"
         android:hint="Forma Farmacêutica"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/dimensao_embalagem"
-        android:layout_width="393dp"
+        android:layout_width="395dp"
         android:layout_height="38dp"
-        android:layout_marginTop="368dp"
+        android:layout_marginTop="440dp"
         android:ems="10"
         android:hint="Dimensão da Embalagem"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/numero"
-        android:layout_width="393dp"
+        android:layout_width="195dp"
         android:layout_height="38dp"
-        android:layout_marginTop="404dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="480dp"
         android:ems="10"
         android:hint="Número"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/Extenso"
-        android:layout_width="393dp"
+        android:layout_width="195dp"
         android:layout_height="38dp"
-        android:layout_marginTop="440dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Extenso"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/validade"
-        android:layout_width="393dp"
+        android:layout_width="195dp"
         android:layout_height="38dp"
-        android:layout_marginTop="476dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="520dp"
         android:ems="10"
         android:hint="Validade"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 
     <EditText
         android:id="@+id/data"
-        android:layout_width="393dp"
+        android:layout_width="195dp"
         android:layout_height="38dp"
-        android:layout_marginTop="512dp"
+        android:layout_marginTop="520dp"
+        android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Data"
         android:inputType="date"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.444"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/view4"
         tools:ignore="MissingConstraints" />
 

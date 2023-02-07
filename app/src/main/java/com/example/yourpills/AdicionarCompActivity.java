@@ -50,6 +50,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_comp);
 
+        // este código ira procurar no layout o id das variaveis
         name_comp = findViewById(R.id.name_comp);
         mil_comp = findViewById(R.id.mil_comp);
         med_comp = findViewById(R.id.med_comp);
@@ -60,15 +61,18 @@ public class AdicionarCompActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+        //este código do botão inserir vai fazer com que
         inserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //estás strings vão ser definidas como o texto que está contido nos objetos
                 String compnome = name_comp.getText().toString();
                 String compmiligramas = mil_comp.getText().toString();
                 String compembalagens = emb_comp.getText().toString();
                 String compmedicamentos = med_comp.getText().toString();
                 String compdata = data_comp.getText().toString();
-
+                //e depois um mapa é chamado com o nome comprimidodata em que ele é preenchido com as chaves
+                //e assim com este mapa ele armazena os dados das strings
                 Map<String, String> ComprimidoData = new HashMap<>();
                 ComprimidoData.put("nome", compnome);
                 ComprimidoData.put("miligramas", compmiligramas);
@@ -76,12 +80,13 @@ public class AdicionarCompActivity extends AppCompatActivity {
                 ComprimidoData.put("embalagens", compembalagens);
                 ComprimidoData.put("data", compdata);
 
+                //com este codigo vai ser usado para adicionar os dados na coleção "Comprimido"
                 db.collection("Comprimidos")
                         .add(ComprimidoData)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
-
+                                //se os dados forem criados vai exibir uma mensagem a dizer criada
                                 Toast.makeText(AdicionarCompActivity.this, "Criada", Toast.LENGTH_SHORT).show();
 
                             }
@@ -89,7 +94,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
                             @Override
                             public void onFailure(@NonNull Exception e) {
                                 String error = e.getMessage();
-
+                                //e se caso deia um erro ele vai exibir este mensagem
                                 Toast.makeText(AdicionarCompActivity.this, "Erro!" + error, Toast.LENGTH_SHORT).show();
 
                             }

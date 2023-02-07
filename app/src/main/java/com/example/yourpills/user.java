@@ -1,6 +1,6 @@
 package com.example.yourpills;
 
-//com este código vamos fazer a declaração do user
+//com este código vamos criar a class java chamada user
 //e aqui vão ser definidas as variáveis nome, conta, numero e idade
 public class user {
 

@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+//o customAdapter é usado para criar um adaptador para listas
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
@@ -23,12 +24,14 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @NonNull
     @Override
+    //este metodo vai chamar o View de uma lista criada
     public CustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_recyclerview,parent,false);
 
         return new MyViewHolder(view);
     }
 
+    //com este codigo vai exibir os dados em uma lista
     @Override
     public void onBindViewHolder(@NonNull CustomAdapter.MyViewHolder holder, int position) {
 
@@ -41,11 +44,13 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.data_comp.setText( comprimidoArrayList.get(position).getData());
     }
 
+    //com este metodo vamos retornar o número de itens da lista
     @Override
     public int getItemCount() {
         return comprimidoArrayList.size();
     }
 
+    //este codigo vai ser usado para associar os dados do recyclerview aos elementos do View
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView name_comp, mil_comp, emb_comp, med_comp, data_comp;

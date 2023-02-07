@@ -24,6 +24,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
     @NonNull
     @Override
     public CustomAdapter2.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+
+
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_recyclerview2,parent,false);
 
         return new MyViewHolder(view);
@@ -31,7 +33,8 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
 
 
     @Override
-    public void onBindViewHolder(@NonNull CustomAdapter2.MyViewHolder holder, int position) {
+    public void onBindViewHolder(CustomAdapter2.MyViewHolder holder, int position) {
+
         receitas receitas = receitasArrayList.get(position);
 
         holder.nome_receita.setText(receitasArrayList.get(position).getNome_receita());
@@ -47,15 +50,18 @@ public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHo
         return receitasArrayList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
+
         TextView nome_receita, n_utente, forma_farma, dosagem, data;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nome_receita = itemView.findViewById(R.id.name_receita_txt);
-            n_utente = itemView.findViewById(R.id.n_utente);
+            n_utente = itemView.findViewById(R.id.n_utente_txt);
             forma_farma = itemView.findViewById(R.id.forma_txt);
             dosagem = itemView.findViewById(R.id.dosagem_txt);
             data = itemView.findViewById(R.id.date_receita_txt);
         }
+
     }
 }

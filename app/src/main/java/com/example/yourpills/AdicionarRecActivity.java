@@ -10,6 +10,7 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -31,7 +32,6 @@ import java.util.Map;
 public class AdicionarRecActivity extends AppCompatActivity {
 
     private FirebaseFirestore db;
-
     private Button voltar , inserir;
     private EditText nome_receita, entidade_responsavel, especialidade, designacao_medicamento, forma_farmaceutica, n_utente, n_medico, numero_telemovel, n_beneficiario, contacto, dosagem, dimensao_embalagem, numero, extenso, validade, data;
 
@@ -60,6 +60,8 @@ public class AdicionarRecActivity extends AppCompatActivity {
         inserir = findViewById(R.id.inserir1);
 
         db = FirebaseFirestore.getInstance();
+
+
 
         inserir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,6 +100,16 @@ public class AdicionarRecActivity extends AppCompatActivity {
                 ReceitaData.put("extenso", extenso1);
                 ReceitaData.put("validade", validade1);
                 ReceitaData.put("data", data1);
+
+                if(TextUtils.isEmpty(receita_nome)){
+                    Toast.makeText(AdicionarRecActivity.this, "Insira o nome da receita", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(numero_utente)){
+                    Toast.makeText(AdicionarRecActivity.this, "", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 db.collection("Receitas")
                         .add(ReceitaData)
