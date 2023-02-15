@@ -38,15 +38,10 @@ import com.google.firebase.auth.FirebaseUser;
 public class HomeActivity extends AppCompatActivity implements CustomAdapter3.OnItemListener {
     FirebaseAuth auth;
     FirebaseUser user;
-
     private TextView mes_ano;
-
     private String selectedDate;
-
     private RecyclerView calendarRecyclerView;
-
     private LocalDate selectData;
-
     private Button bottom, bottom1, rotina;
     private BottomNavigationView BottomMenu;
 
@@ -82,12 +77,12 @@ public class HomeActivity extends AppCompatActivity implements CustomAdapter3.On
         LocalDate firstOfMonth = selectData.withDayOfMonth(1);
         int dayOfWeek = firstOfMonth.getDayOfWeek().getValue();
 
-        for(int i = 1; i <= 31; i++){
+        for(int i = 1; i <= daysInMonth + dayOfWeek; i++){
             if (i <= dayOfWeek || i > daysInMonth + dayOfWeek){
                 daysInMonthArray.add("");
             }
             else {
-                daysInMonthArray.add(String.valueOf(i + dayOfWeek));
+                daysInMonthArray.add(String.valueOf(i - dayOfWeek));
             }
         }
         return daysInMonthArray;
