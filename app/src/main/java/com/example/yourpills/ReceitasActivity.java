@@ -1,9 +1,11 @@
 package com.example.yourpills;
 
 import static com.example.yourpills.R.id.BottomMenu1;
+import static com.example.yourpills.R.id.item1;
 import static com.example.yourpills.R.id.item2;
 import static com.example.yourpills.R.id.item3;
 import static com.example.yourpills.R.id.item4;
+import static com.example.yourpills.R.id.item5;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -38,6 +40,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -49,8 +52,6 @@ public class ReceitasActivity extends AppCompatActivity {
     private ArrayList<receitas> receitasArrayList;
     private CustomAdapter2 customAdapter2;
     FirebaseFirestore db;
-
-    private Button volta;
     private BottomNavigationView BottomMenu1;
 
     @Override
@@ -63,7 +64,6 @@ public class ReceitasActivity extends AppCompatActivity {
         view = findViewById(R.id.view1);
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(customAdapter2);
-        volta = (Button) findViewById(R.id.voltar1);
         add = findViewById(R.id.add1);
         BottomMenu1 = findViewById(R.id.BottomMenu1);
         BottomMenu1.setSelectedItemId(R.id.item2);
@@ -91,33 +91,40 @@ public class ReceitasActivity extends AppCompatActivity {
             public void onNavigationItemReselected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()){
+                    case item1:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                }
+
+                switch (item.getItemId()){
                     case item2:
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0,0);
+                        break;
                 }
 
                 switch (item.getItemId()){
                     case item3:
                         startActivity(new Intent(getApplicationContext(), ComprimidosActivity.class));
                         overridePendingTransition(0,0);
+                        break;
                 }
 
                 switch (item.getItemId()){
                     case item4:
                         startActivity(new Intent(getApplicationContext(), ReceitasActivity.class));
                         overridePendingTransition(0,0);
+                        break;
                 }
 
-            }
-        });
+                switch (item.getItemId()){
+                    case item5:
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(ReceitasActivity.this, "Saiu da sua conta", Toast.LENGTH_SHORT).show();
+                        break;
+                }
 
-
-
-        volta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
             }
         });
 

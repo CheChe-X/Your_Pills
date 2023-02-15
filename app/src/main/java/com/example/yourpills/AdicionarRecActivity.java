@@ -84,7 +84,7 @@ public class AdicionarRecActivity extends AppCompatActivity {
                 String data1 = data.getText().toString();
 
                 Map<String, String> ReceitaData = new HashMap<>();
-                ReceitaData.put("nome", receita_nome);
+                ReceitaData.put("nome_receita", receita_nome);
                 ReceitaData.put("n_utente", numero_utente);
                 ReceitaData.put("n_medico", numero_medico);
                 ReceitaData.put("telemovel", n_telemovel);

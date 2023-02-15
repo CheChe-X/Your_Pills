@@ -3,9 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/item1"
+        android:icon="@drawable/baseline_account_circle_24"
+        android:title="@string/title_profile"
+        android:textAppearance="@style/MenuTextAppearance"
+        app:showAsAction="never"
+        />
+
+    <item
         android:id="@+id/item2"
         android:icon="@drawable/ic_baseline_calendar_month_24"
         android:title="@string/title_calendario"
+        android:textAppearance="@style/MenuTextAppearance"
         app:showAsAction="never"
         />
 
@@ -13,6 +22,7 @@
         android:id="@+id/item3"
         android:icon="@drawable/pill"
         android:title="@string/title_comprimidos"
+        android:textAppearance="@style/MenuTextAppearance"
         app:showAsAction="never"
         />
 
@@ -20,7 +30,18 @@
         android:id="@+id/item4"
         android:icon="@drawable/note"
         android:title="@string/title_receitas"
+        android:textAppearance="@style/MenuTextAppearance"
         app:showAsAction="never"
         />
+
+    <item
+        android:id="@+id/item5"
+        android:icon="@drawable/baseline_login_24"
+        android:title="@string/title_logout"
+        android:textAppearance="@style/MenuTextAppearance"
+        app:showAsAction="never"
+        />
+
+
 
 </menu>

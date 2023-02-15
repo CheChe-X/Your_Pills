@@ -1,8 +1,10 @@
 package com.example.yourpills;
 
+import static com.example.yourpills.R.id.item1;
 import static com.example.yourpills.R.id.item2;
 import static com.example.yourpills.R.id.item3;
 import static com.example.yourpills.R.id.item4;
+import static com.example.yourpills.R.id.item5;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,10 +17,12 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -35,7 +39,6 @@ public class ComprimidosActivity extends AppCompatActivity {
     private ArrayList<comprimido> comprimidoArrayList;
     private CustomAdapter customAdapter;
     FirebaseFirestore db;
-    private Button volta1;
     private BottomNavigationView BottomMenu2;
 
 
@@ -52,7 +55,6 @@ public class ComprimidosActivity extends AppCompatActivity {
         view.setLayoutManager(new LinearLayoutManager(this));
         view.setAdapter(customAdapter);
         add = findViewById(R.id.add);
-        volta1 = (Button) findViewById(R.id.voltar1);
         BottomMenu2 = findViewById(R.id.BottomMenu2);
         BottomMenu2.setSelectedItemId(R.id.item2);
         BottomMenu2.setSelectedItemId(R.id.item3);
@@ -86,6 +88,13 @@ public class ComprimidosActivity extends AppCompatActivity {
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
                 switch (item.getItemId()){
+                    case item1:
+                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
+                        overridePendingTransition(0,0);
+                        break;
+                }
+
+                switch (item.getItemId()){
                     case item2:
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0,0);
@@ -106,6 +115,13 @@ public class ComprimidosActivity extends AppCompatActivity {
                         break;
                 }
 
+                switch (item.getItemId()){
+                    case item5:
+                        FirebaseAuth.getInstance().signOut();
+                        Toast.makeText(ComprimidosActivity.this, "Saiu da sua conta", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+
                 return false;
 
             }
@@ -120,13 +136,5 @@ public class ComprimidosActivity extends AppCompatActivity {
             }
         });
 
-        volta1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent (getApplicationContext(), HomeActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 }
