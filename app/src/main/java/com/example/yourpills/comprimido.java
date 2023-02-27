@@ -1,10 +1,7 @@
 package com.example.yourpills;
 
-import androidx.annotation.NonNull;
-
-import java.util.Date;
-
 //com este código vamos fazer uma classe java chamada comprimido
+//e a classe comprimido vai ter as variaveis nome embalagens miligramas medicamentos e data
 public class comprimido {
 
     public String nome, embalagens, miligramas, medicamentos, data;

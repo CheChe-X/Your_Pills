@@ -1,6 +1,5 @@
 package com.example.yourpills;
 
-import static com.example.yourpills.R.id.BottomMenu1;
 import static com.example.yourpills.R.id.item1;
 import static com.example.yourpills.R.id.item2;
 import static com.example.yourpills.R.id.item3;
@@ -8,28 +7,15 @@ import static com.example.yourpills.R.id.item4;
 import static com.example.yourpills.R.id.item5;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import android.annotation.SuppressLint;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.CalendarView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -39,7 +25,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -50,7 +35,7 @@ public class ReceitasActivity extends AppCompatActivity {
     private RecyclerView view;
     private FloatingActionButton add;
     private ArrayList<receitas> receitasArrayList;
-    private CustomAdapter2 customAdapter2;
+    private ReceitasAdapter receitasAdapter;
     FirebaseFirestore db;
     private BottomNavigationView BottomMenu1;
 
@@ -60,10 +45,10 @@ public class ReceitasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_receitas);
 
         receitasArrayList = new ArrayList<receitas>();
-        customAdapter2 = new CustomAdapter2(receitasArrayList);
+        receitasAdapter = new ReceitasAdapter(receitasArrayList);
         view = findViewById(R.id.view1);
         view.setLayoutManager(new LinearLayoutManager(this));
-        view.setAdapter(customAdapter2);
+        view.setAdapter(receitasAdapter);
         add = findViewById(R.id.add1);
         BottomMenu1 = findViewById(R.id.BottomMenu1);
         BottomMenu1.setSelectedItemId(R.id.item2);
@@ -80,11 +65,11 @@ public class ReceitasActivity extends AppCompatActivity {
                                     receitas obj = d.toObject(receitas.class);
                                     receitasArrayList.add(obj);
                                 }
-                                customAdapter2.notifyDataSetChanged();
+                                receitasAdapter.notifyDataSetChanged();
                             }
                         });
 
-        view.setAdapter(customAdapter2);
+        view.setAdapter(receitasAdapter);
 
         BottomMenu1.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override

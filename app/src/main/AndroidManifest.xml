@@ -15,14 +15,10 @@
         android:theme="@style/Theme.YourPills"
         tools:targetApi="31">
         <activity
-            android:name=".ResetPasswordActivity"
-            android:exported="false">
-            <meta-data
-                android:name="android.app.lib_name"
-                android:value="" />
-        </activity>
+            android:name=".WeekViewActivity"
+            android:exported="false" />
         <activity
-            android:name=".RotinaActivity"
+            android:name=".ResetPasswordActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

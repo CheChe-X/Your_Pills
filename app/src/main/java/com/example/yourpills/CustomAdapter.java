@@ -26,7 +26,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
     @Override
     //este metodo vai chamar o View de uma lista criada
     public CustomAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_recyclerview,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.comprimidos_cell,parent,false);
 
         return new MyViewHolder(view);
     }

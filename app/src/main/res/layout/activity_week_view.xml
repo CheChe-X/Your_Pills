@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeActivity">
+    tools:context=".WeekViewActivity">
 
     <TextView
         android:id="@+id/comp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="Página Principal"
+        android:text="Semanas"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -44,11 +44,11 @@
         app:layout_constraintTop_toBottomOf="@+id/comp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/before"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="previousMonthAction"
+            android:onClick="previousWeekAction"
             android:text="@string/back"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -62,17 +62,17 @@
             android:layout_marginTop="15dp"
             android:text="Feb 2023"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/after"
+            app:layout_constraintStart_toEndOf="@+id/before"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/after"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:onClick="nextMonthAction"
+            android:onClick="nextWeekAction"
             android:text="@string/forward"
             android:textColor="@color/black"
             android:textSize="20dp"
@@ -189,34 +189,40 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/calendarioRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="145dp"
-        android:layout_marginBottom="130dp"
-        app:layout_constraintBottom_toTopOf="@+id/BottomMenu"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
-        tools:layout_editor_absoluteX="-17dp" />
-
-    <Button
-        android:id="@+id/semana"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_marginBottom="20dp"
-        android:text="Rotinas"
-        android:textColor="@color/black"
-        app:iconTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/BottomMenu"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout2" />
+
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:onClick="previousWeekAction"
+        android:text="Adicionar Evento"
+        android:textColor="@color/black"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calendarioRecycler" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/BottomMenu"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button3"
+        app:layout_constraintVertical_bias="1.0"
+        />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/semana"
         android:background="#FF9800"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"

@@ -31,8 +31,11 @@ import java.util.Map;
 
 public class AdicionarRecActivity extends AppCompatActivity {
 
+    //esta linha de código declara uma instância do Firebase Firestore
     private FirebaseFirestore db;
+    //este codigo vai declarar dois botoes
     private Button voltar , inserir;
+    //este codigo declara varios campos de texto
     private EditText nome_receita, entidade_responsavel, especialidade, designacao_medicamento, forma_farmaceutica, n_utente, n_medico, numero_telemovel, n_beneficiario, contacto, dosagem, dimensao_embalagem, numero, extenso, validade, data;
 
     @Override

@@ -34,12 +34,20 @@ import java.util.List;
 
 public class ComprimidosActivity extends AppCompatActivity {
 
-    private RecyclerView view;
-    private FloatingActionButton add;
-    private ArrayList<comprimido> comprimidoArrayList;
-    private CustomAdapter customAdapter;
-    FirebaseFirestore db;
-    private BottomNavigationView BottomMenu2;
+    //declaração de uma variável do tipo RecyclerView
+        private RecyclerView view;
+        //declaração de uma variável do tipo FloatingActionButton
+        private FloatingActionButton add;
+        //Declaração de uma variável do tipo ArrayList que armazenará objetos do tipo "comprimido"
+        private ArrayList<comprimido> comprimidoArrayList;
+        //Declaração de uma variável do tipo CustomAdapter que é uma classe personalizada responsável
+        // por conectar o RecyclerView aos dados da lista
+        private CustomAdapter customAdapter;
+        //Declaração de uma variável do tipo FirebaseFirestore
+        // que é a classe de banco de dados do Firebase Firestore
+        FirebaseFirestore db;
+        //Declaração de uma variável do tipo BottomNavigationView,
+        private BottomNavigationView BottomMenu2;
 
 
 
@@ -48,12 +56,17 @@ public class ComprimidosActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comprimidos);
 
+        //esta linha cria uma novo Arraylist que armazena os objetos dos comprimidos
         comprimidoArrayList = new ArrayList<comprimido>();
+        //esta linha cria um customadapter
         customAdapter = new CustomAdapter(comprimidoArrayList);
-        // este código ira procurar no layout o id das variaveis
+        //estes tres codigos vai localizar o recyclerview no layout
         view = findViewById(R.id.view);
+        //este codigo vai configurar o layoutmanager
         view.setLayoutManager(new LinearLayoutManager(this));
+        //e este codigo vai defenir o recyclerview como o customadapter
         view.setAdapter(customAdapter);
+        //estas linhas de codigo vao localizar os views no layout
         add = findViewById(R.id.add);
         BottomMenu2 = findViewById(R.id.BottomMenu2);
         BottomMenu2.setSelectedItemId(R.id.item2);
@@ -63,6 +76,7 @@ public class ComprimidosActivity extends AppCompatActivity {
         //este código vai a Firebase Firestore e vai acessar a coleção comprimidos
         db = FirebaseFirestore.getInstance();
         //com o get ela vai recuperar todos os dados na coleção
+        //e assim vai mostrar os comprimidos no recyclerview
         db.collection("Comprimidos").get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                             @Override
@@ -82,39 +96,40 @@ public class ComprimidosActivity extends AppCompatActivity {
         //isto vai fazer com o view use o customAdapter para exibir a informaçáo necessaria
         view.setAdapter(customAdapter);
 
-        //com este código cada vez que uma pessoa seleciona na barra de navegação ele ira iniciar a activity
+        //com este código cada vez que uma pessoa seleciona na barra de navegação ele ira chamar a activity
         BottomMenu2.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
+                //este codigo vai chamar a MainActivity
                 switch (item.getItemId()){
                     case item1:
                         startActivity(new Intent(getApplicationContext(), MainActivity.class));
                         overridePendingTransition(0,0);
                         break;
                 }
-
+                //este vai chamar o HomeActivity
                 switch (item.getItemId()){
                     case item2:
                         startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         overridePendingTransition(0,0);
                         break;
                 }
-
+                //este vai chamar o ComprimidosActivity
                 switch (item.getItemId()){
                     case item3:
                         startActivity(new Intent(getApplicationContext(), ComprimidosActivity.class));
                         overridePendingTransition(0,0);
                         break;
                 }
-
+                //vai chamar a ReceitasActivity
                 switch (item.getItemId()){
                     case item4:
                         startActivity(new Intent(getApplicationContext(), ReceitasActivity.class));
                         overridePendingTransition(0,0);
                         break;
                 }
-
+                //este codigo vai fazer com que quando o utilizador clique no botao sair vai fazer com que
+                //a pessoa sai da conta e apareca uma mensagem a dizer saiu da sua conta
                 switch (item.getItemId()){
                     case item5:
                         FirebaseAuth.getInstance().signOut();
@@ -127,6 +142,7 @@ public class ComprimidosActivity extends AppCompatActivity {
             }
         });
 
+        //este botao com o intent vai iniciar a pagina adicionar
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

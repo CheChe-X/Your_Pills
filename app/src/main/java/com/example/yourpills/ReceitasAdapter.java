@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -12,28 +11,28 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-public class CustomAdapter2 extends RecyclerView.Adapter<CustomAdapter2.MyViewHolder> {
+public class ReceitasAdapter extends RecyclerView.Adapter<ReceitasAdapter.MyViewHolder> {
     private Context context;
     ArrayList<receitas>  receitasArrayList;
 
-    public CustomAdapter2(ArrayList<receitas> receitasArrayList) {
+    public ReceitasAdapter(ArrayList<receitas> receitasArrayList) {
         this.context = context;
         this.receitasArrayList = receitasArrayList;
     }
 
     @NonNull
     @Override
-    public CustomAdapter2.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ReceitasAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
 
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.my_recyclerview2,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.receitas_cell,parent,false);
 
         return new MyViewHolder(view);
     }
 
 
     @Override
-    public void onBindViewHolder(CustomAdapter2.MyViewHolder holder, int position) {
+    public void onBindViewHolder(ReceitasAdapter.MyViewHolder holder, int position) {
 
         receitas receitas = receitasArrayList.get(position);
 

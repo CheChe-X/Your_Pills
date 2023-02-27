@@ -38,12 +38,12 @@ import java.util.Map;
 
 public class AdicionarCompActivity extends AppCompatActivity {
 
+    //este codigo declara varios campos de texto
     private EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
+    //este codigo vai declarar dois botoes
     private Button inserir, voltar;
-
+    //esta classe db vai representar a base de dados da FirebaseFirestore
     private FirebaseFirestore db;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
         inserir = findViewById(R.id.inserir);
         voltar = findViewById(R.id.voltar2);
 
+        //este codigo vai criar uma conexao com a base de dados da FirebaseFirestore
         db = FirebaseFirestore.getInstance();
 
         //este código do botão inserir vai fazer com que
@@ -100,6 +101,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
                             }
                         });
 
+                //este codigo de este botao vai chamar o ComprimidosAcitivity
                 voltar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
