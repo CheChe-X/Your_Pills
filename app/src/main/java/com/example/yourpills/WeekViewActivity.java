@@ -1,7 +1,7 @@
 package com.example.yourpills;
 
-import static com.example.yourpills.CalendarioUtilities.daysInWeekArray;
-import static com.example.yourpills.CalendarioUtilities.monthYearFromDate;
+import static com.example.yourpills.CalendarUtils.daysInWeekArray;
+import static com.example.yourpills.CalendarUtils.monthYearFromDate;
 import static com.example.yourpills.R.id.item1;
 import static com.example.yourpills.R.id.item2;
 import static com.example.yourpills.R.id.item3;
@@ -17,6 +17,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,92 +27,75 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
-
-    private TextView mes_ano;
+public class WeekViewActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener
+{
+    private TextView monthYearText;
     private RecyclerView calendarRecyclerView;
-    private Object setWeekView;
-    private BottomNavigationView BottomMenu;
+    private ListView eventListView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_week_view);
-        iniWidgets();
+        initWidgets();
         setWeekView();
-        BottomMenu = findViewById(R.id.BottomMenu);
-
-        BottomMenu.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-                    case item1:
-                        startActivity(new Intent(getApplicationContext(), MainActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-
-                switch (item.getItemId()){
-                    case item2:
-                        startActivity(new Intent(getApplicationContext(), HomeActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-
-                switch (item.getItemId()){
-                    case item3:
-                        startActivity(new Intent(getApplicationContext(), ComprimidosActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-
-                switch (item.getItemId()){
-                    case item4:
-                        startActivity(new Intent(getApplicationContext(), ReceitasActivity.class));
-                        overridePendingTransition(0,0);
-                        break;
-                }
-
-                switch (item.getItemId()){
-                    case item5:
-                        FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(WeekViewActivity.this, "Saiu da sua conta", Toast.LENGTH_SHORT).show();
-                        break;
-                }
-            }
-        });
     }
 
-    private void iniWidgets() {
-        calendarRecyclerView = findViewById(R.id.calendarioRecycler);
-        mes_ano = findViewById(R.id.mes_ano);
-
+    private void initWidgets()
+    {
+        calendarRecyclerView = findViewById(R.id.calendarRecyclerView);
+        monthYearText = findViewById(R.id.monthYearTV);
+        eventListView = findViewById(R.id.eventListView);
     }
 
-    private void setWeekView() {
-        mes_ano.setText(monthYearFromDate(CalendarioUtilities.selectData));
-        ArrayList<LocalDate> days = daysInWeekArray(CalendarioUtilities.selectData);
+    private void setWeekView()
+    {
+        monthYearText.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> days = daysInWeekArray(CalendarUtils.selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(days, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
         calendarRecyclerView.setLayoutManager(layoutManager);
         calendarRecyclerView.setAdapter(calendarAdapter);
+        setEventAdpater();
     }
 
-    public void previousWeekAction(View view){
-        CalendarioUtilities.selectData = CalendarioUtilities.selectData.minusWeeks(1);
+    public void nextWeekAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusWeeks(1);
         setWeekView();
     }
 
-    public void nextWeekAction(View view){
-        CalendarioUtilities.selectData = CalendarioUtilities.selectData.plusWeeks(1);
+    public void previousWeekAction(View view)
+    {
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusWeeks(1);
         setWeekView();
     }
 
-    public void onItemClick(int position, LocalDate date) {
-            CalendarioUtilities.selectData = date;
-            setWeekView();
+    @Override
+    public void onItemClick(int position, LocalDate date)
+    {
+        CalendarUtils.selectedDate = date;
+        setWeekView();
     }
 
+    @Override
+    protected void onResume()
+    {
+        super.onResume();
+        setEventAdpater();
+    }
+
+    private void setEventAdpater()
+    {
+        ArrayList<Event> dailyEvents = Event.eventsForDate(CalendarUtils.selectedDate);
+        EventAdapter eventAdapter = new EventAdapter(getApplicationContext(), dailyEvents);
+        eventListView.setAdapter(eventAdapter);
+    }
+
+    public void newEventAction(View view)
+    {
+        startActivity(new Intent(this, EventEditActivity.class));
+    }
 }

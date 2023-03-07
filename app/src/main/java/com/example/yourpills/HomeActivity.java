@@ -1,7 +1,7 @@
 package com.example.yourpills;
 
-import static com.example.yourpills.CalendarioUtilities.daysInMonthArray;
-import static com.example.yourpills.CalendarioUtilities.monthYearFromDate;
+import static com.example.yourpills.CalendarUtils.daysInMonthArray;
+import static com.example.yourpills.CalendarUtils.monthYearFromDate;
 import static com.example.yourpills.R.id.item1;
 import static com.example.yourpills.R.id.item2;
 import static com.example.yourpills.R.id.item3;
@@ -20,41 +20,51 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QuerySnapshot;
 
 public class HomeActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
     FirebaseAuth auth;
     FirebaseUser user;
+
+    FirebaseFirestore db;
     private TextView mes_ano;
     private RecyclerView calendarRecyclerView;
     private Button semana;
+    private ListView eventListView;
     private BottomNavigationView BottomMenu;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.bottom_nav_menu, menu);
+        iniWidgets();
         return true;
     }
 
     private void iniWidgets() {
         calendarRecyclerView = findViewById(R.id.calendarioRecycler);
         mes_ano = findViewById(R.id.mes_ano);
-
     }
 
     private void setMonthView() {
-        mes_ano.setText(monthYearFromDate(CalendarioUtilities.selectData));
-        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarioUtilities.selectData);
+        mes_ano.setText(monthYearFromDate(CalendarUtils.selectedDate));
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
@@ -63,20 +73,25 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
     }
 
     public void previousMonthAction(View view){
-        CalendarioUtilities.selectData = CalendarioUtilities.selectData.minusMonths(1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
         setMonthView();
     }
 
     public void nextMonthAction(View view){
-        CalendarioUtilities.selectData = CalendarioUtilities.selectData.plusMonths(1);
+        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
         setMonthView();
     }
 
     public void onItemClick(int position, LocalDate date) {
         if(date !=null) {
-            CalendarioUtilities.selectData = date;
+            CalendarUtils.selectedDate = date;
             setMonthView();
         }
+    }
+
+    protected void OnResume(){
+        super.onResume();
+
     }
 
     @SuppressLint({"MissingInflatedId", "NewApi"})
@@ -93,10 +108,18 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
         BottomMenu.setSelectedItemId(item3);
         BottomMenu.setSelectedItemId(item4);
         iniWidgets();
-        CalendarioUtilities.selectData = LocalDate.now();
+        CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
 
         user = auth.getCurrentUser();
+
+        semana.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), WeekViewActivity.class);
+                startActivity(intent);
+            }
+        });
 
         BottomMenu.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override
@@ -139,14 +162,7 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
             }
         });
 
-        // e com este código a variavel rotina vai chamar a página RotinaActivity
-        semana.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), WeekViewActivity.class);
-                startActivity(intent);
-            }
-        });
+        // e com este código a variavel rotina vai chamar a página EventEditActivity
 
     }
 

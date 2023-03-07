@@ -44,7 +44,7 @@
         app:layout_constraintTop_toBottomOf="@+id/comp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/previusBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -62,13 +62,13 @@
             android:layout_marginTop="15dp"
             android:text="Feb 2023"
             android:textColor="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/button2"
-            app:layout_constraintStart_toEndOf="@+id/button"
+            app:layout_constraintEnd_toStartOf="@+id/nextBtn"
+            app:layout_constraintStart_toEndOf="@+id/previusBtn"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
