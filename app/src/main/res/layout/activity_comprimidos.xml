@@ -20,6 +20,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <View
+        android:id="@+id/view5"
         android:layout_width="320dp"
         android:layout_height="2dp"
         android:layout_gravity="center"
@@ -34,11 +35,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view"
+        android:layout_width="413dp"
+        android:layout_height="486dp"
+        android:layout_marginTop="8dp"
         android:paddingTop="?attr/actionBarSize"
-        android:layout_width="408dp"
-        android:layout_height="462dp"
-        tools:layout_editor_absoluteX="3dp"
-        tools:layout_editor_absoluteY="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

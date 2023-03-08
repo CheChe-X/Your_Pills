@@ -191,32 +191,38 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="145dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toTopOf="@+id/BottomMenu"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout2"
         tools:layout_editor_absoluteX="-17dp" />
 
-    <Button
-        android:id="@+id/semana"
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/add1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="500dp"
-        android:layout_marginBottom="20dp"
-        android:text="Rotinas"
-        android:textColor="@color/black"
-        app:iconTint="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="@+id/BottomMenu"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="80dp"
+        android:clickable="true"
+        android:contentDescription="@string/app_name"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/eventList"
+        android:layout_width="411dp"
+        android:layout_height="232dp"
+        app:layout_constraintBottom_toTopOf="@+id/BottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.65"
+        app:layout_constraintTop_toBottomOf="@+id/calendarioRecycler"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomMenu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/semana"
         android:background="#FF9800"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"

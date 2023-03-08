@@ -32,6 +32,7 @@ import java.util.List;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -41,12 +42,13 @@ import com.google.firebase.firestore.QuerySnapshot;
 public class HomeActivity extends AppCompatActivity implements CalendarAdapter.OnItemListener {
     FirebaseAuth auth;
     FirebaseUser user;
-
     FirebaseFirestore db;
+    private RecyclerView eventList;
+    private ArrayList<rotina> rotinaArrayList;
+    private RotinaAdapter rotinaAdapter;
     private TextView mes_ano;
     private RecyclerView calendarRecyclerView;
-    private Button semana;
-    private ListView eventListView;
+    private FloatingActionButton semana;
     private BottomNavigationView BottomMenu;
 
     @Override
@@ -102,21 +104,32 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
 
         auth = FirebaseAuth.getInstance();
         // este código ira procurar no layout o id das variaveis
-        semana = findViewById(R.id.semana);
+        semana = findViewById(R.id.add1);
         BottomMenu = findViewById(R.id.BottomMenu);
         BottomMenu.setSelectedItemId(item2);
         BottomMenu.setSelectedItemId(item3);
         BottomMenu.setSelectedItemId(item4);
+
         iniWidgets();
         CalendarUtils.selectedDate = LocalDate.now();
         setMonthView();
 
+        rotinaArrayList = new ArrayList<rotina>();
+        rotinaAdapter = new RotinaAdapter(rotinaArrayList);
+        eventList = findViewById(R.id.eventList);
+        eventList.setAdapter(rotinaAdapter);
+
         user = auth.getCurrentUser();
+
+        db = FirebaseFirestore.getInstance();
+
+
+        eventList.setAdapter(rotinaAdapter);
 
         semana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), WeekViewActivity.class);
+                Intent intent = new Intent(getApplicationContext(), rotinasActivity.class);
                 startActivity(intent);
             }
         });
