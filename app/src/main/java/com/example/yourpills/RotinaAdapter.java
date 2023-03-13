@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHolder> {
 
     private Context context;
-
     ArrayList<rotina> rotinaArrayList;
 
 
@@ -27,6 +26,7 @@ public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHold
     @Override
     public RotinaAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rotina_cell,parent,false);
+
             return new MyViewHolder(view);
     }
 
@@ -34,10 +34,10 @@ public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHold
     public void onBindViewHolder(@NonNull RotinaAdapter.MyViewHolder holder, int position) {
         rotina rotina = rotinaArrayList.get(position);
 
-        holder.nome_rotina.setText(rotinaArrayList.get(position).getNome_rotina());
-        holder.startDate.setText(rotinaArrayList.get(position).getStartDate());
-        holder.finalDate.setText(rotinaArrayList.get(position).getFinalDate());
-        holder.hour.setText(rotinaArrayList.get(position).getHour());
+        holder.nome_rotina.setText(rotinaArrayList.get(position).getNome());
+        holder.startDate.setText(rotinaArrayList.get(position).getData_de_inicio());
+        holder.finalDate.setText(rotinaArrayList.get(position).getData_final());
+        holder.hour.setText(rotinaArrayList.get(position).getHora());
     }
 
     @Override
@@ -45,7 +45,7 @@ public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHold
         return rotinaArrayList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public static class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView nome_rotina, startDate, finalDate, hour;
 

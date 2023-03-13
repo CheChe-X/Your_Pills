@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
@@ -33,9 +35,8 @@ public class rotinasActivity extends AppCompatActivity {
     private static final String TAG = "rotinasActivity";
     private EditText nome_rotina, timepicker;
     private TextView startDate, finalDate;
-
     private DatePickerDialog.OnDateSetListener getmDateSetListener,mDateSetListener;
-
+    private TimePickerDialog timePickerDialog;
     private Button criar_rotina, voltar;
     private FirebaseFirestore db;
 
@@ -74,6 +75,7 @@ public class rotinasActivity extends AppCompatActivity {
             }
         };
         nome_rotina = (EditText) findViewById(R.id.nome_rotina);
+
         finalDate = (TextView) findViewById(R.id.finalDate);
 
         finalDate.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +108,20 @@ public class rotinasActivity extends AppCompatActivity {
         };
 
         timepicker = (EditText) findViewById(R.id.timepicker);
+
+        timepicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                timePickerDialog = new TimePickerDialog(rotinasActivity.this, new TimePickerDialog.OnTimeSetListener() {
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        timepicker.setText(hourOfDay + ":" + minute);
+                    }
+                },0,0,false);
+                timePickerDialog.show();
+            }
+        });
+
         criar_rotina = (Button) findViewById(R.id.criar_rotina);
         voltar = (Button) findViewById(R.id.voltar7);
 
@@ -147,7 +163,7 @@ public class rotinasActivity extends AppCompatActivity {
                 voltar.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), HomeActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), HabaRotinasActivity.class);
                         startActivity(intent);
                         finish();
                     }

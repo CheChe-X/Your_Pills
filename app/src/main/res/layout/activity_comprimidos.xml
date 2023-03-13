@@ -35,10 +35,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view"
-        android:layout_width="413dp"
-        android:layout_height="486dp"
+        android:layout_width="408dp"
+        android:layout_height="613dp"
         android:layout_marginTop="8dp"
         android:paddingTop="?attr/actionBarSize"
+        app:layout_constraintBottom_toTopOf="@+id/BottomMenu2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -81,5 +82,5 @@
         tools:ignore="MissingConstraints"
         app:labelVisibilityMode="labeled"
         />
-
+ 
 </androidx.constraintlayout.widget.ConstraintLayout>

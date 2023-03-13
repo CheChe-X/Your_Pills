@@ -8,8 +8,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -33,6 +36,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.auth.User;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -40,6 +44,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
 
     //este codigo declara varios campos de texto
     private EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
+    private DatePickerDialog.OnDateSetListener getmDateSetListener;
     //este codigo vai declarar dois botoes
     private Button inserir, voltar;
     //esta classe db vai representar a base de dados da FirebaseFirestore
@@ -58,6 +63,24 @@ public class AdicionarCompActivity extends AppCompatActivity {
         data_comp = findViewById(R.id.date_comp);
         inserir = findViewById(R.id.inserir);
         voltar = findViewById(R.id.voltar2);
+
+        data_comp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Calendar cal = Calendar.getInstance();
+                int year = cal.get(Calendar.YEAR);
+                int month = cal.get(Calendar.MONTH);
+                int day = cal.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog dialog = new DatePickerDialog(
+                        AdicionarCompActivity.this,
+                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
+                        getmDateSetListener,
+                        year,month,day);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+                dialog.show();
+            }
+        });
 
         //este codigo vai criar uma conexao com a base de dados da FirebaseFirestore
         db = FirebaseFirestore.getInstance();

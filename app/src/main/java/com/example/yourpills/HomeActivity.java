@@ -43,9 +43,6 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
     FirebaseAuth auth;
     FirebaseUser user;
     FirebaseFirestore db;
-    private RecyclerView eventList;
-    private ArrayList<rotina> rotinaArrayList;
-    private RotinaAdapter rotinaAdapter;
     private TextView mes_ano;
     private RecyclerView calendarRecyclerView;
     private FloatingActionButton semana;
@@ -65,8 +62,8 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
     }
 
     private void setMonthView() {
-        mes_ano.setText(monthYearFromDate(CalendarUtils.selectedDate));
-        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectedDate);
+        mes_ano.setText(monthYearFromDate(CalendarUtils.selectDate));
+        ArrayList<LocalDate> daysInMonth = daysInMonthArray(CalendarUtils.selectDate);
 
         CalendarAdapter calendarAdapter = new CalendarAdapter(daysInMonth, this);
         RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getApplicationContext(), 7);
@@ -75,18 +72,18 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
     }
 
     public void previousMonthAction(View view){
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.minusMonths(1);
+        CalendarUtils.selectDate = CalendarUtils.selectDate.minusMonths(1);
         setMonthView();
     }
 
     public void nextMonthAction(View view){
-        CalendarUtils.selectedDate = CalendarUtils.selectedDate.plusMonths(1);
+        CalendarUtils.selectDate = CalendarUtils.selectDate.plusMonths(1);
         setMonthView();
     }
 
     public void onItemClick(int position, LocalDate date) {
         if(date !=null) {
-            CalendarUtils.selectedDate = date;
+            CalendarUtils.selectDate = date;
             setMonthView();
         }
     }
@@ -111,25 +108,17 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
         BottomMenu.setSelectedItemId(item4);
 
         iniWidgets();
-        CalendarUtils.selectedDate = LocalDate.now();
+        CalendarUtils.selectDate = LocalDate.now();
         setMonthView();
-
-        rotinaArrayList = new ArrayList<rotina>();
-        rotinaAdapter = new RotinaAdapter(rotinaArrayList);
-        eventList = findViewById(R.id.eventList);
-        eventList.setAdapter(rotinaAdapter);
 
         user = auth.getCurrentUser();
 
         db = FirebaseFirestore.getInstance();
 
-
-        eventList.setAdapter(rotinaAdapter);
-
         semana.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), rotinasActivity.class);
+                Intent intent = new Intent(getApplicationContext(), HabaRotinasActivity.class);
                 startActivity(intent);
             }
         });
@@ -174,9 +163,6 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
                 }
             }
         });
-
-        // e com este código a variavel rotina vai chamar a página EventEditActivity
-
     }
 
 }

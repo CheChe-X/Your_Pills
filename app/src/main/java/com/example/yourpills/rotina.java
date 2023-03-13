@@ -1,44 +1,55 @@
 package com.example.yourpills;
 
+import com.google.firebase.database.PropertyName;
+
 public class rotina {
-    public String nome_rotina, startDate, finalDate, hour;
-
-    public String getNome_rotina() {
-        return nome_rotina;
+    @PropertyName("nome")
+    public String nome;
+    @PropertyName("data de inicio")
+    public String data_de_inicio;
+    @PropertyName("data final")
+    public String data_final;
+    @PropertyName("hora")
+    public String hora;
+    public rotina(){
+        super();
+    }
+    public rotina(String nome, String data_de_inicio, String data_final, String hora){
+        this.nome = nome;
+        this.data_de_inicio= data_de_inicio;
+        this.data_final = data_final;
+        this.hora = hora;
     }
 
-    public void setNome_rotina(String nome_rotina) {
-        this.nome_rotina = nome_rotina;
+    public String getNome() {
+        return nome;
     }
 
-    public String getStartDate() {
-        return startDate;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public void setStartDate(String startDate) {
-        this.startDate = startDate;
+    public String getData_de_inicio() {
+        return data_de_inicio;
     }
 
-    public String getFinalDate() {
-        return finalDate;
+    public void setData_de_inicio(String data_de_inicio) {
+        this.data_de_inicio = data_de_inicio;
     }
 
-    public void setFinalDate(String finalDate) {
-        this.finalDate = finalDate;
+    public String getData_final() {
+        return data_final;
     }
 
-    public String getHour() {
-        return hour;
+    public void setData_final(String finalDate) {
+        this.data_final = finalDate;
     }
 
-    public void setHour(String hour) {
-        this.hour = hour;
+    public String getHora() {
+        return hora;
     }
 
-    public rotina(String nome_rotina, String startDate, String finalDate, String hour) {
-        this.nome_rotina = nome_rotina;
-        this.startDate = startDate;
-        this.finalDate = finalDate;
-        this.hour = hour;
+    public void setHora(String hora) {
+        this.hora = hora;
     }
 }

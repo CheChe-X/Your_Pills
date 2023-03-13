@@ -49,8 +49,6 @@ public class ComprimidosActivity extends AppCompatActivity {
         //Declaração de uma variável do tipo BottomNavigationView,
         private BottomNavigationView BottomMenu2;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

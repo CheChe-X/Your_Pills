@@ -6,7 +6,6 @@ public class comprimido {
 
     public String nome, embalagens, miligramas, medicamentos, data;
 
-
     public comprimido(){
         super();
     }
