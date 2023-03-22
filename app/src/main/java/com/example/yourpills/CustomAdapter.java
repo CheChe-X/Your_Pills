@@ -1,10 +1,13 @@
 package com.example.yourpills;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,6 +19,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     ArrayList<comprimido> comprimidoArrayList;
+    private Dialog dialog;
+
+    public interface Dialog{
+            void onClick(int poss);
+    }
+
+    public void setDialog(Dialog dialog){
+        this.dialog = dialog;
+    }
 
     public CustomAdapter(ArrayList<comprimido> comprimidoArrayList) {
         this.context = context;
@@ -55,6 +67,8 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         TextView name_comp, mil_comp, emb_comp, med_comp, data_comp;
 
+        ImageButton edit_Button, delete_Button;
+
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name_comp = itemView.findViewById(R.id.name_comp_txt);
@@ -62,6 +76,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             emb_comp = itemView.findViewById(R.id.emb_comp_txt);
             med_comp = itemView.findViewById(R.id.med_comp_txt);
             data_comp = itemView.findViewById(R.id.date_comp_txt);
+
+            edit_Button = itemView.findViewById(R.id.edit_Button);
+            delete_Button = itemView.findViewById(R.id.delete_Button);
+
         }
 
     }

@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReceitasActivity">
+    tools:context=".ApagarActivity">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="As Suas Receitas"
+        android:text="Comprimidos"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -20,7 +20,7 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <View
-        android:id="@+id/view"
+        android:id="@+id/view5"
         android:layout_width="320dp"
         android:layout_height="2dp"
         android:layout_gravity="center"
@@ -28,57 +28,56 @@
         android:layout_marginEnd="46dp"
         android:background="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/view1"
-        android:layout_width="400dp"
-        android:layout_height="550dp"
-        android:layout_marginTop="-40dp"
-        android:paddingTop="?attr/actionBarSize"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/apagarcomprimido"
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:hint="Nome do Comprimido"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/view5">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
-        android:clickable="true"
-        app:layout_constraintBottom_toBottomOf="parent"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameinput"
+            android:layout_width="395dp"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:maxLines="1"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <Button
+        android:id="@+id/apagarBTN"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Apagar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
-
-
-
-
-    <FrameLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="526dp">
-
-    </FrameLayout>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apagarcomprimido"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/BottomMenu1"
-        android:layout_width="416dp"
-        android:layout_height="61dp"
+        android:id="@+id/BottomMenu2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:background="#FF9800"
         app:itemIconTint="@color/black"
         app:itemTextColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu"
         tools:ignore="MissingConstraints"
-        app:labelVisibilityMode="labeled"/>
+        app:labelVisibilityMode="labeled"
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

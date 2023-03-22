@@ -12,14 +12,21 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -48,6 +55,10 @@ public class ComprimidosActivity extends AppCompatActivity {
         FirebaseFirestore db;
         //Declaração de uma variável do tipo BottomNavigationView,
         private BottomNavigationView BottomMenu2;
+        private Button atualizar, apagar;
+        private ProgressDialog progressDialog;
+
+        private String id = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +82,32 @@ public class ComprimidosActivity extends AppCompatActivity {
         BottomMenu2.setSelectedItemId(R.id.item3);
         BottomMenu2.setSelectedItemId(item4);
 
+        atualizar = findViewById(R.id.atualizar);
+        apagar = findViewById(R.id.apagar);
+
+        atualizar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AtualizarActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        apagar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ApagarActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        progressDialog = new ProgressDialog(ComprimidosActivity.this);
+        progressDialog.setTitle("Carregar...");
+        progressDialog.setMessage("Os Comprimidos");
+
+        progressDialog.show();
         //este código vai a Firebase Firestore e vai acessar a coleção comprimidos
         db = FirebaseFirestore.getInstance();
         //com o get ela vai recuperar todos os dados na coleção
@@ -88,8 +125,10 @@ public class ComprimidosActivity extends AppCompatActivity {
                                     comprimidoArrayList.add(obj);
                                 }
                                 customAdapter.notifyDataSetChanged();
+                                progressDialog.dismiss();
                             }
                         });
+
 
         //isto vai fazer com o view use o customAdapter para exibir a informaçáo necessaria
         view.setAdapter(customAdapter);
@@ -150,5 +189,16 @@ public class ComprimidosActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void deleteComprimidos() {
+        db.collection("Comprimidos").document("id")
+                .delete()
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        Toast.makeText(ComprimidosActivity.this, "Apagado com Sucesso", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 }

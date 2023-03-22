@@ -4,14 +4,15 @@ package com.example.yourpills;
 //e a classe comprimido vai ter as variaveis nome embalagens miligramas medicamentos e data
 public class comprimido {
 
-    public String nome, embalagens, miligramas, medicamentos, data;
+    public String id, nome, embalagens, miligramas, medicamentos, data;
 
     public comprimido(){
         super();
     }
 
     //e vai ter cinco variáveis chamadas nome, miligramas, embalagens, medicamentos e data
-    public comprimido(String nome, String miligramas, String embalagens, String medicamentos, String data){
+    public comprimido(String id, String nome, String miligramas, String embalagens, String medicamentos, String data){
+        this.id = id;
         this.nome = nome;
         this.miligramas = miligramas;
         this.medicamentos = medicamentos;
@@ -22,6 +23,16 @@ public class comprimido {
     //neste código temos o métodos de acesso "getters" e métodos de atribuição "setters"
     //em que um dos métodos vai retornar o valor atual de uma variável e o outro vai ser o que define um novo valor
     //e assim estes métodos permitem que outras classes tenham acesso e possam modificar
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
     public String getNome() {
         return nome;
     }

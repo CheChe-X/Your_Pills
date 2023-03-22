@@ -35,11 +35,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/view"
-        android:layout_width="408dp"
-        android:layout_height="613dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="400dp"
+        android:layout_height="550dp"
+        android:layout_marginTop="-40dp"
         android:paddingTop="?attr/actionBarSize"
-        app:layout_constraintBottom_toTopOf="@+id/BottomMenu2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
@@ -49,12 +48,12 @@
         android:id="@+id/add"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
         android:layout_marginBottom="100dp"
         android:clickable="true"
         android:contentDescription="@string/app_name"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/apagar"
+        app:layout_constraintStart_toEndOf="@+id/atualizar"
         app:srcCompat="@drawable/ic_baseline_add_24"
         tools:ignore="MissingConstraints" />
 
@@ -82,5 +81,25 @@
         tools:ignore="MissingConstraints"
         app:labelVisibilityMode="labeled"
         />
- 
+
+    <Button
+        android:id="@+id/apagar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="100dp"
+        android:text="Apagar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/atualizar"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="100dp"
+        android:text="Atualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
