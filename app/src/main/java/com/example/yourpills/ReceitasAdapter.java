@@ -43,7 +43,6 @@ public class ReceitasAdapter extends RecyclerView.Adapter<ReceitasAdapter.MyView
         holder.data.setText( receitasArrayList.get(position).getData());
     }
 
-
     @Override
     public int getItemCount() {
         return receitasArrayList.size();

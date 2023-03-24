@@ -65,7 +65,7 @@
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/BottomMenu2"
+        android:id="@+id/BottomMenu5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF9800"

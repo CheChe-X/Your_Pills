@@ -48,7 +48,7 @@
         tools:ignore="MissingConstraints" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/starDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,7 +63,7 @@
         tools:ignore="MissingConstraints" />
 
 
-    <TextView
+    <EditText
         android:id="@+id/finalDate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

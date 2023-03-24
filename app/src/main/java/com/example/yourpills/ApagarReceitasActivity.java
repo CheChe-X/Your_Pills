@@ -40,23 +40,27 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApagarActivity extends AppCompatActivity {
+public class ApagarReceitasActivity extends AppCompatActivity {
 
-    Button apagarBTN;
-    EditText nomeComprimido;
+    Button apagar;
+    EditText namereceita;
     FirebaseFirestore db;
-    BottomNavigationView bottom5;
+
+    BottomNavigationView bottom6;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_apagar);
-        db = FirebaseFirestore.getInstance();
-        apagarBTN = findViewById(R.id.apagarBTN);
-        nomeComprimido = findViewById(R.id.nameinput);
-        bottom5 = findViewById(R.id.BottomMenu5);
+        setContentView(R.layout.activity_apagar_receitas);
 
-        bottom5.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        db = FirebaseFirestore.getInstance();
+        apagar = findViewById(R.id.apagar1);
+        namereceita = findViewById(R.id.nameinput1);
+
+        bottom6 = findViewById(R.id.BottomMenu4);
+
+        bottom6.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 //este codigo vai chamar a MainActivity
@@ -92,7 +96,7 @@ public class ApagarActivity extends AppCompatActivity {
                 switch (item.getItemId()){
                     case item5:
                         FirebaseAuth.getInstance().signOut();
-                        Toast.makeText(ApagarActivity.this, "Saiu da sua conta", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(ApagarReceitasActivity.this, "Saiu da sua conta", Toast.LENGTH_SHORT).show();
                         break;
                 }
 
@@ -101,45 +105,44 @@ public class ApagarActivity extends AppCompatActivity {
             }
         });
 
-
-        apagarBTN.setOnClickListener(new View.OnClickListener() {
+        apagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String nome = nomeComprimido.getText().toString();
-                nomeComprimido.setText("");
-                DeleteData(nome);
+                String nome_receita = namereceita.getText().toString();
+                namereceita.setText("");
+                DeleteData(nome_receita);
             }
         });
 
     }
 
-    private void DeleteData(String nome) {
-        db.collection("Comprimidos")
-                .whereEqualTo("nome", nome)
+    private void DeleteData(String nome_receita) {
+        db.collection("Receitas")
+                .whereEqualTo("nome_receita", nome_receita)
                 .get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful() && !task.getResult().isEmpty()){
                             DocumentSnapshot documentSnapshot = task.getResult().getDocuments().get(0);
                             String documentID = documentSnapshot.getId();
-                            db.collection("Comprimidos")
+                            db.collection("Receitas")
                                     .document(documentID)
                                     .delete()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            Toast.makeText(ApagarActivity.this, "Apagado com Sucesso", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ApagarReceitasActivity.this, "Apagado com Sucesso", Toast.LENGTH_SHORT).show();
                                         }
                                     }).addOnFailureListener(new OnFailureListener() {
                                         @Override
                                         public void onFailure(@NonNull Exception e) {
-                                            Toast.makeText(ApagarActivity.this, "Error", Toast.LENGTH_SHORT).show();
+                                            Toast.makeText(ApagarReceitasActivity.this, "Error", Toast.LENGTH_SHORT).show();
                                         }
                                     });
 
                         }else {
-                            Toast.makeText(ApagarActivity.this, "Um Erro Ocurreu", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(ApagarReceitasActivity.this, "Um Erro Ocurreu", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

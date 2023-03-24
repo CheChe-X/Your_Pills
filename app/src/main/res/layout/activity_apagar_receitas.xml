@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HabaRotinasActivity">
+    tools:context=".ApagarReceitasActivity">
 
     <TextView
-        android:id="@+id/comp"
+        android:id="@+id/textView3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
-        android:text="As suas Rotinas"
+        android:text="Receitas"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"
@@ -20,10 +20,9 @@
         tools:layout_editor_absoluteY="16dp" />
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view5"
         android:layout_width="320dp"
         android:layout_height="2dp"
-        android:layout_below="@id/comp"
         android:layout_gravity="center"
         android:layout_marginStart="46dp"
         android:layout_marginEnd="46dp"
@@ -31,47 +30,42 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/comp"
+        app:layout_constraintTop_toBottomOf="@+id/textView3"
         tools:ignore="MissingConstraints" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/eventList"
-        android:layout_width="410dp"
-        android:layout_height="605dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2"
-        tools:ignore="MissingConstraints" />
-
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="125dp"
-        android:clickable="true"
-        android:contentDescription="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/apagarreceita"
+        android:layout_width="384dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="24dp"
+        android:hint="Nome da Receita"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toBottomOf="@+id/view5">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/nameinput1"
+            android:layout_width="395dp"
+            android:layout_height="match_parent"
+            android:inputType="text"
+            android:maxLines="1"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
 
     <Button
-        android:id="@+id/apagar_rotina"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="70dp"
-        android:text="@string/apagar"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/apagar1"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="12dp"
+        android:hint="Apagar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apagarreceita"
+        tools:ignore="MissingConstraints" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/BottomMenu3"
+        android:id="@+id/BottomMenu4"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF9800"

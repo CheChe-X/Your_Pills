@@ -88,7 +88,7 @@ public class ComprimidosActivity extends AppCompatActivity {
         atualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AtualizarActivity.class);
+                Intent intent = new Intent(getApplicationContext(), AtualizarCompActivity.class);
                 startActivity(intent);
                 finish();
             }

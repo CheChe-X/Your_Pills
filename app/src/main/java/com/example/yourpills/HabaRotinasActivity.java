@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -41,6 +42,8 @@ public class HabaRotinasActivity extends AppCompatActivity {
     private RotinaAdapter rotinaAdapter;
     FirebaseFirestore db;
     private BottomNavigationView BottomMenu3;
+    private Button apagar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +55,15 @@ public class HabaRotinasActivity extends AppCompatActivity {
         eventList = findViewById(R.id.eventList);
         eventList.setLayoutManager(new LinearLayoutManager(this));
         eventList.setAdapter(rotinaAdapter);
+        apagar = findViewById(R.id.apagar_rotina);
+
+        apagar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ApagarRotinasActivity.class);
+                startActivity(intent);
+            }
+        });
 
         add = findViewById(R.id.add2);
 

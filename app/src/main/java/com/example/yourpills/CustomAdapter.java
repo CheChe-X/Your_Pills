@@ -54,6 +54,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.med_comp.setText( comprimidoArrayList.get(position).getMedicamentos());
         holder.emb_comp.setText( comprimidoArrayList.get(position).getEmbalagens());
         holder.data_comp.setText( comprimidoArrayList.get(position).getData());
+        
     }
 
     //com este metodo vamos retornar o número de itens da lista
@@ -67,7 +68,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         TextView name_comp, mil_comp, emb_comp, med_comp, data_comp;
 
-        ImageButton edit_Button, delete_Button;
+        ImageButton editcomp, deletecomp;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -77,8 +78,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             med_comp = itemView.findViewById(R.id.med_comp_txt);
             data_comp = itemView.findViewById(R.id.date_comp_txt);
 
-            edit_Button = itemView.findViewById(R.id.edit_Button);
-            delete_Button = itemView.findViewById(R.id.delete_Button);
+            editcomp = itemView.findViewById(R.id.editcomp);
+            deletecomp = itemView.findViewById(R.id.deletecomp);
+            
 
         }
 

@@ -34,8 +34,7 @@ import java.util.Map;
 public class rotinasActivity extends AppCompatActivity {
 
     private static final String TAG = "rotinasActivity";
-    private EditText nome_rotina, timepicker;
-    private TextView startDate, finalDate;
+    private EditText nome_rotina, timepicker, startDate, finalDate;
     private DatePickerDialog.OnDateSetListener getmDateSetListener,mDateSetListener;
     private TimePickerDialog timePickerDialog;
     private Button criar_rotina, voltar;
@@ -78,7 +77,7 @@ public class rotinasActivity extends AppCompatActivity {
         };
         nome_rotina = (EditText) findViewById(R.id.nome_rotina);
 
-        finalDate = (TextView) findViewById(R.id.finalDate);
+        finalDate = findViewById(R.id.finalDate);
 
         finalDate.setOnClickListener(new View.OnClickListener() {
             @Override

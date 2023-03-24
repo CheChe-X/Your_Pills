@@ -7,4 +7,5 @@
     <string name="title_logout">Sair</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string name="apagar">Apagar</string>
 </resources>
