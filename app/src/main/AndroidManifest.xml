@@ -17,10 +17,12 @@
         <activity
             android:name=".ApagarActivity"
             android:exported="false" />
-        <activity android:name=".ApagarReceitasActivity" android:exported="false"/>
+        <activity
+            android:name=".ApagarReceitasActivity"
+            android:exported="false" />
         <activity
             android:name=".ApagarRotinasActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".HabaRotinasActivity"
             android:exported="false" />
@@ -62,9 +64,6 @@
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
-        <activity
-            android:name=".AtualizarCompActivity"
-            android:exported="false"/>
         <activity
             android:name=".HomeActivity"
             android:exported="true">

@@ -34,7 +34,8 @@ import java.util.Map;
 public class rotinasActivity extends AppCompatActivity {
 
     private static final String TAG = "rotinasActivity";
-    private EditText nome_rotina, timepicker, startDate, finalDate;
+    private EditText nome_rotina;
+    private TextView timepicker;
     private DatePickerDialog.OnDateSetListener getmDateSetListener,mDateSetListener;
     private TimePickerDialog timePickerDialog;
     private Button criar_rotina, voltar;
@@ -44,71 +45,8 @@ public class rotinasActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rotina);
-        startDate = findViewById(R.id.starDate);
-
-
-        startDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(
-                        rotinasActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        getmDateSetListener,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        getmDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-
-                String date = month + "/" + day + "/" + year;
-                startDate.setText(date);
-            }
-        };
         nome_rotina = (EditText) findViewById(R.id.nome_rotina);
-
-        finalDate = findViewById(R.id.finalDate);
-
-        finalDate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(
-                        rotinasActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        mDateSetListener,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        mDateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker datePicker, int year, int month, int day) {
-                month = month + 1;
-                Log.d(TAG, "onDateSet: mm/dd/yyy: " + month + "/" + day + "/" + year);
-
-                String date = month + "/" + day + "/" + year;
-                finalDate.setText(date);
-            }
-        };
-
-        timepicker = (EditText) findViewById(R.id.timepicker);
+        timepicker = findViewById(R.id.timepicker);
 
         timepicker.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -132,14 +70,10 @@ public class rotinasActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String Nome_rotina = nome_rotina.getText().toString();
-                String StartDate = startDate.getText().toString();
-                String FinalDate = finalDate.getText().toString();
                 String Hora = timepicker.getText().toString();
 
                 Map<String , String> RotinasData = new HashMap<>();
                 RotinasData.put("nome", Nome_rotina);
-                RotinasData.put("data de inicio", StartDate);
-                RotinasData.put("data final", FinalDate);
                 RotinasData.put("hora", Hora);
 
                 db.collection("Rotinas")

@@ -64,6 +64,15 @@ public class AdicionarCompActivity extends AppCompatActivity {
         inserir = findViewById(R.id.inserir);
         voltar = findViewById(R.id.voltar2);
 
+        //este codigo de este botao vai chamar o ComprimidosAcitivity
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ComprimidosActivity.class);
+                startActivity(intent);
+            }
+        });
+
         data_comp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,16 +132,6 @@ public class AdicionarCompActivity extends AppCompatActivity {
 
                             }
                         });
-
-                //este codigo de este botao vai chamar o ComprimidosAcitivity
-                voltar.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent intent = new Intent(getApplicationContext(), ComprimidosActivity.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                });
             }
         });
     }

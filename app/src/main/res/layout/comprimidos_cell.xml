@@ -78,27 +78,6 @@
                 app:layout_constraintStart_toEndOf="@+id/mil_comp_txt"
                 app:layout_constraintTop_toBottomOf="@+id/name_comp_txt" />
 
-            <ImageView
-                android:id="@+id/editcomp"
-                android:layout_width="49dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_delete_24" />
-
-            <ImageView
-                android:id="@+id/deletecomp"
-                android:layout_width="49dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="4dp"
-                app:layout_constraintEnd_toStartOf="@+id/editcomp"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/baseline_edit_24" />
-
-
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

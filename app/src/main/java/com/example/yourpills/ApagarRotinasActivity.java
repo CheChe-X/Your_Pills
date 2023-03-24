@@ -42,10 +42,10 @@ import java.util.List;
 
 public class ApagarRotinasActivity extends AppCompatActivity {
 
-    Button apagar;
-    EditText nomerotina;
-    FirebaseFirestore db;
-    BottomNavigationView bottom7;
+    private Button apagar, voltar;
+    private EditText nomerotina;
+    private FirebaseFirestore db;
+    private BottomNavigationView bottom7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +54,16 @@ public class ApagarRotinasActivity extends AppCompatActivity {
         apagar = findViewById(R.id.apagar);
         nomerotina = findViewById(R.id.nameinput2);
         db = FirebaseFirestore.getInstance();
+
+        voltar = findViewById(R.id.voltar5);
+
+        voltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HabaRotinasActivity.class);
+                startActivity(intent);
+            }
+        });
 
         apagar.setOnClickListener(new View.OnClickListener() {
             @Override

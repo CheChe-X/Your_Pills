@@ -2,6 +2,7 @@ package com.example.yourpills;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.DocumentSnapshot;
+
 import java.util.ArrayList;
 
 //o customAdapter é usado para criar um adaptador para listas
@@ -19,15 +22,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     private Context context;
     ArrayList<comprimido> comprimidoArrayList;
-    private Dialog dialog;
-
-    public interface Dialog{
-            void onClick(int poss);
-    }
-
-    public void setDialog(Dialog dialog){
-        this.dialog = dialog;
-    }
 
     public CustomAdapter(ArrayList<comprimido> comprimidoArrayList) {
         this.context = context;
@@ -54,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.med_comp.setText( comprimidoArrayList.get(position).getMedicamentos());
         holder.emb_comp.setText( comprimidoArrayList.get(position).getEmbalagens());
         holder.data_comp.setText( comprimidoArrayList.get(position).getData());
-        
+
     }
 
     //com este metodo vamos retornar o número de itens da lista
@@ -68,8 +62,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         TextView name_comp, mil_comp, emb_comp, med_comp, data_comp;
 
-        ImageButton editcomp, deletecomp;
-
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             name_comp = itemView.findViewById(R.id.name_comp_txt);
@@ -78,8 +70,6 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             med_comp = itemView.findViewById(R.id.med_comp_txt);
             data_comp = itemView.findViewById(R.id.date_comp_txt);
 
-            editcomp = itemView.findViewById(R.id.editcomp);
-            deletecomp = itemView.findViewById(R.id.deletecomp);
             
 
         }

@@ -64,6 +64,19 @@
         app:layout_constraintTop_toBottomOf="@+id/apagarreceita"
         tools:ignore="MissingConstraints" />
 
+    <Button
+        android:id="@+id/voltar4"
+        android:layout_width="119dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:text="voltar"
+        android:textColor="@color/black"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/apagar1"
+        tools:ignore="MissingConstraints" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/BottomMenu4"
         android:layout_width="match_parent"

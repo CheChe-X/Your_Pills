@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -39,8 +40,8 @@ public class ReceitasActivity extends AppCompatActivity {
     private ReceitasAdapter receitasAdapter;
     FirebaseFirestore db;
     private BottomNavigationView BottomMenu1;
-
     private Button apagar;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +69,11 @@ public class ReceitasActivity extends AppCompatActivity {
             }
         });
 
+        progressDialog = new ProgressDialog(ReceitasActivity.this);
+        progressDialog.setTitle("Carregar...");
+        progressDialog.setMessage("As Receitas");
+
+        progressDialog.show();
         db = FirebaseFirestore.getInstance();
         db.collection("Receitas").get()
                         .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -79,6 +85,7 @@ public class ReceitasActivity extends AppCompatActivity {
                                     receitasArrayList.add(obj);
                                 }
                                 receitasAdapter.notifyDataSetChanged();
+                                progressDialog.dismiss();
                             }
                         });
 

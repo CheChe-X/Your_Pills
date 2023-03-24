@@ -35,8 +35,6 @@ public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHold
         rotina rotina = rotinaArrayList.get(position);
 
         holder.nome_rotina.setText(rotinaArrayList.get(position).getNome());
-        holder.startDate.setText(rotinaArrayList.get(position).getData_de_inicio());
-        holder.finalDate.setText(rotinaArrayList.get(position).getData_final());
         holder.hour.setText(rotinaArrayList.get(position).getHora());
     }
 
@@ -47,13 +45,11 @@ public class RotinaAdapter extends RecyclerView.Adapter<RotinaAdapter.MyViewHold
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
 
-        TextView nome_rotina, startDate, finalDate, hour;
+        TextView nome_rotina, hour;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             nome_rotina = itemView.findViewById(R.id.name_rotina_txt);
-            startDate = itemView.findViewById(R.id.starDate_txt);
-            finalDate = itemView.findViewById(R.id.finalDate_txt);
             hour = itemView.findViewById(R.id.hour_txt);
         }
     }

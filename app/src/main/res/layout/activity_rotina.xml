@@ -47,38 +47,7 @@
         app:layout_constraintTop_toBottomOf="@+id/view3"
         tools:ignore="MissingConstraints" />
 
-
-    <EditText
-        android:id="@+id/starDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:hint="Data de Inicio"
-        android:gravity="center"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nome_rotina"
-        tools:ignore="MissingConstraints" />
-
-
-    <EditText
-        android:id="@+id/finalDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
-        android:gravity="center"
-        android:hint="Data final"
-        android:textSize="22dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/starDate"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
+    <TextView
         android:id="@+id/timepicker"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,7 +59,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.542"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/finalDate"
+        app:layout_constraintTop_toBottomOf="@+id/nome_rotina"
         tools:ignore="MissingConstraints" />
 
     <FrameLayout

@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -43,6 +44,7 @@ public class HabaRotinasActivity extends AppCompatActivity {
     FirebaseFirestore db;
     private BottomNavigationView BottomMenu3;
     private Button apagar;
+    private ProgressDialog progressDialog;
 
 
     @Override
@@ -74,6 +76,11 @@ public class HabaRotinasActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+        progressDialog = new ProgressDialog(HabaRotinasActivity.this);
+        progressDialog.setTitle("Carregar...");
+        progressDialog.setMessage("As Rotinas");
+
+        progressDialog.show();
         db.collection("Rotinas").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                     @Override
@@ -84,6 +91,7 @@ public class HabaRotinasActivity extends AppCompatActivity {
                             rotinaArrayList.add(obj);
                         }
                         rotinaAdapter.notifyDataSetChanged();
+                        progressDialog.dismiss();
                     }
                 });
 

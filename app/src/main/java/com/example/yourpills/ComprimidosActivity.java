@@ -55,7 +55,7 @@ public class ComprimidosActivity extends AppCompatActivity {
         FirebaseFirestore db;
         //Declaração de uma variável do tipo BottomNavigationView,
         private BottomNavigationView BottomMenu2;
-        private Button atualizar, apagar;
+        private Button apagar;
         private ProgressDialog progressDialog;
 
         private String id = "";
@@ -82,17 +82,7 @@ public class ComprimidosActivity extends AppCompatActivity {
         BottomMenu2.setSelectedItemId(R.id.item3);
         BottomMenu2.setSelectedItemId(item4);
 
-        atualizar = findViewById(R.id.atualizar);
         apagar = findViewById(R.id.apagar);
-
-        atualizar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AtualizarCompActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         apagar.setOnClickListener(new View.OnClickListener() {
             @Override
