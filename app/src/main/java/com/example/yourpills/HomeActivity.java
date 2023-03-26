@@ -101,7 +101,6 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
 
         auth = FirebaseAuth.getInstance();
         // este código ira procurar no layout o id das variaveis
-        semana = findViewById(R.id.add1);
         BottomMenu = findViewById(R.id.BottomMenu);
         BottomMenu.setSelectedItemId(item2);
         BottomMenu.setSelectedItemId(item3);
@@ -115,13 +114,6 @@ public class HomeActivity extends AppCompatActivity implements CalendarAdapter.O
 
         db = FirebaseFirestore.getInstance();
 
-        semana.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HabaRotinasActivity.class);
-                startActivity(intent);
-            }
-        });
 
         BottomMenu.setOnNavigationItemReselectedListener(new BottomNavigationView.OnNavigationItemReselectedListener() {
             @Override

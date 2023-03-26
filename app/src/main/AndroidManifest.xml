@@ -21,15 +21,6 @@
             android:name=".ApagarReceitasActivity"
             android:exported="false" />
         <activity
-            android:name=".ApagarRotinasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".HabaRotinasActivity"
-            android:exported="false" />
-        <activity
-            android:name=".rotinasActivity"
-            android:exported="false" />
-        <activity
             android:name=".ResetPasswordActivity"
             android:exported="false">
             <meta-data
