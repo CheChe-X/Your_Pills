@@ -15,8 +15,27 @@ use App\Http\Controllers\FirebaseController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/criar_conta', function () {
+    return view('criar_conta');
+});
+
+Route::get('/comprimidos', function () {
+    return view('comprimidos');
+});
+
+Route::get('/receitas', function () {
+    return view('receitas');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
 });
 
 Route::get('get-firebase-data', [FirebaseController::class, 'index'])->name('firebase.index');
-
