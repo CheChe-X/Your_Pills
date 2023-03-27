@@ -1,0 +1,6 @@
+{
+    "require": {
+        "livewire/livewire": "^2.12",
+        "kreait/laravel-firebase": "^5.1"
+    }
+}
