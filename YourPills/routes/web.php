@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\FirebaseContasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,8 @@ use App\Http\Controllers\FirebaseController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('api/utilizadores', [FirebaseContasController::class, 'index'])->name('firebase.index');
 
 Route::get('/', function () {
     return view('index');
@@ -37,5 +39,3 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-Route::get('get-firebase-data', [FirebaseController::class, 'index'])->name('firebase.index');
