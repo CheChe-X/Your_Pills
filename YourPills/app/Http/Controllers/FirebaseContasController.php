@@ -17,11 +17,11 @@ class FirebaseContasController extends Controller
  
         $database = $firebase->createDatabase();
  
-        $blog = $database
+        $conta = $database
         ->getReference('Users');
  
         echo '<pre>';
-        print_r($blog->getvalue());
+        print_r($conta->getvalue());
         echo '</pre>';
     }
 }

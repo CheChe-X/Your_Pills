@@ -43,9 +43,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/comprimidos">Comprimidos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/criar_conta">Criar Conta</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="/about">Sobre Nós</a>
               </li>
@@ -56,7 +54,7 @@
                 <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Conta</a>
+                <a class="nav-link" href="/login">Conta</a>
               </li>                           
             </ul>
           </div>

@@ -43,9 +43,7 @@
               <li class="nav-item">
                 <a class="nav-link" href="/comprimidos">Comprimidos</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/criar_conta">Criar Conta</a>
-              </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="/about">Sobre Nós</a>
               </li>
@@ -56,7 +54,7 @@
                 <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Conta</a>
+                <a class="nav-link" href="/login">Conta</a>
               </li>                        
             </ul>
           </div>
@@ -99,10 +97,25 @@
           </div>
         </nav>
       </div>
+      
       <!-- header section end -->
       <!-- doctor section start -->
       <div class="doctor_section layout_padding">
         <div class="container">
+        <form>
+  <div class="form-group">
+    <label >Endereço de email</label>
+    <input type="email" class="form-control" placeholder="Enter email">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" placeholder="Password">
+    <small class="form-text text-muted">A sua palavra-passe está segura.</small>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
           <div class="row">
             <div class="col-md-6 padding_top0">
               <h4 class="about_text">Best Laboratory</h4>
@@ -118,6 +131,7 @@
           </div>
         </div>
       </div>
+      
       <!-- doctor section end -->
       <!-- footer section start -->
       <!-- info section -->
