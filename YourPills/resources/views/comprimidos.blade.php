@@ -42,8 +42,13 @@
               
               <li class="nav-item">
                 <a class="nav-link" href="/comprimidos">Comprimidos</a>
+<li class="nav-item">
+                <a class="nav-link" href="/receitas">Receitas</a>
               </li>
-              
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/receitas">Receitas</a>
+              </li>
               <li class="nav-item">
                 <a class="nav-link" href="/about">Sobre Nós</a>
               </li>

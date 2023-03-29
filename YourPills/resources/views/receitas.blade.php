@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>About</title>
+      <title>Blog</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -57,8 +57,8 @@
                 <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="/login">Conta</a>
-              </li>                           
+                <a class="nav-link" href="#">Conta</a>
+              </li>          
             </ul>
           </div>
         </nav>
@@ -101,25 +101,39 @@
         </nav>
       </div>
       <!-- header section end -->
-      <!-- about section start -->
-      <div class="about_section layout_padding">
-        <div class="container-fluid">
+      <!-- services section start -->
+      <div class="services_section layout_padding padding_bottom_0">
+        <div class="container">
+          <h1 class="blog_text">Blog</h1>
           <div class="row">
-            <div class="col-md-6">
-              <div class="about_taital">
-                <h4 class="about_text">About</h4>
-                <h1 class="highest_text">The Highest provide health care</h1>
-                <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposedIt is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed</p>
-                <div class="read_bt"><a href="#">Read More</a></div>
+            <div class="col-lg-4">
+              <div class="call_box">
+                <div class="call_image"><img src="images/call-icon.png"></div>
+                <h2 class="emergency_text">Emergency Cases</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="image_2" href="#"><img src="images/img-2.png"></div>
+            <div class="col-lg-4">
+              <div class="call_box active">
+                <div class="call_image"><img src="images/time-seat-icon.png"></div>
+                <h2 class="emergency_text">Doctors timetable</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="call_box">
+                <div class="call_image"><img src="images/watch-icon.png"></div>
+                <h2 class="emergency_text">Opening hours</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- about section end -->
+      <!-- services section end -->
       <!-- footer section start -->
       <!-- info section -->
       <div class="info_section layout_padding">
