@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseContasController;
+use App\Http\Controllers\PhoneAuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::get('/login', [PhoneAuthController::class, 'index']);
+
 
 Route::get('/comprimidos', function () {
     return view('comprimidos');
