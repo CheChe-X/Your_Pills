@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Laravel 8 Phone Number OTP Auth Example</title>
+  <title>Auth</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
@@ -75,8 +75,17 @@
       coderesult.confirm(code).then(function(result) {
         var user = result.user;
         console.log(user);
+
         $("#successOtpAuth").text("Auth is successful");
         $("#successOtpAuth").show();
+        if (result.user) {
+          // set session variable to indicate phone authentication
+          sessionStorage.setItem('phone_authenticated', true);
+          // reload the page to update the navigation bar
+          window.location.href = "/";
+        }
+
+
       }).catch(function(error) {
         $("#error").text(error.message);
         $("#error").show();
