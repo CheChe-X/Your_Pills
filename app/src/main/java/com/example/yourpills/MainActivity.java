@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     //estes códigos são referencias aos campos do layout
     private EditText memail, mpassword;
-    private Button singin;
+    private Button singin, user_telemovel;
     private TextView singup, resetpassword,voltar;
 
     //este código cria uma instancia da FirebaseAuth
@@ -61,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
         singup = (TextView) findViewById(R.id.btnsingup);
         resetpassword = (TextView) findViewById(R.id.resetpassword);
         voltar = (TextView) findViewById(R.id.voltar4);
+
+        user_telemovel = findViewById(R.id.userphone);
+
+        user_telemovel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+                startActivity(intent);
+            }
+        });
 
         //este código vai servir para dar ordens ao botão singin
         singin.setOnClickListener(new View.OnClickListener() {
