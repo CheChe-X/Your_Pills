@@ -19,9 +19,9 @@ Route::get('api/utilizadores', [FirebaseContasController::class, 'index'])->name
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
-Route::get('/login', [PhoneAuthController::class, 'index']);
+
 
 
 Route::get('/comprimidos', function () {
@@ -38,4 +38,14 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });

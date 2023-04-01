@@ -1,3 +1,7 @@
+@if('phone_authenticated')
+         ja tas logado
+@else
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -84,7 +88,7 @@
           // reload the page to update the navigation bar
           window.location.href = "/";
         }
-
+        
 
       }).catch(function(error) {
         $("#error").text(error.message);
@@ -95,3 +99,4 @@
 </body>
 
 </html>
+@endif

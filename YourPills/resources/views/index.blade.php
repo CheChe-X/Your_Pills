@@ -42,11 +42,7 @@
             <a class="nav-link" href="/">Página Principal</a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/comprimidos">Comprimidos</a>
-          <li class="nav-item">
-            <a class="nav-link" href="/receitas">Receitas</a>
-          </li>
+
           </li>
 
           <li class="nav-item">
@@ -55,19 +51,28 @@
           <li class="nav-item">
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
+
+
           <li class="nav-item">
-            <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
+            <a class="nav-link" href="/comprimidos">Comprimidos</a>
+          <li class="nav-item">
+            <a class="nav-link" href="/receitas">Receitas</a>
           </li>
-          @if('phone_authenticated')
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Bem vindo</a>
-            </li>
-          
+
+          @if(Auth::user())
+          <li class="nav-item">
+            <form method="POST" id="logout-form" action="{{ route('logout') }}" x-data>
+              @csrf
+              <a type="submit" class="nav-link" href="{{ route('logout') }}" @click.prevent="$root.submit();" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Log Out') }}</button>
+              </a>
+            </form>
+          </li>
           @else
           <li class="nav-item active">
-            <a class="nav-link" href="/login">Conta</a>
+            <a class="nav-link" href="/login">Login</a>
           </li>
           @endif
+
         </ul>
       </div>
     </nav>
@@ -377,4 +382,5 @@
     }
   });
 </script>
+
 </html>
