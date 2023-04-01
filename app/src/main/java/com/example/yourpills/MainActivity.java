@@ -62,16 +62,6 @@ public class MainActivity extends AppCompatActivity {
         resetpassword = (TextView) findViewById(R.id.resetpassword);
         voltar = (TextView) findViewById(R.id.voltar4);
 
-        user_telemovel = findViewById(R.id.userphone);
-
-        user_telemovel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
-                startActivity(intent);
-            }
-        });
-
         //este código vai servir para dar ordens ao botão singin
         singin.setOnClickListener(new View.OnClickListener() {
             @Override
