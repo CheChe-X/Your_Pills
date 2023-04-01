@@ -80,18 +80,6 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="20dp" />
 
-    <Button
-        android:id="@+id/userphone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/conta"
-        android:layout_marginTop="70dp"
-        android:text="Entrar com Telemovel"
-        android:textSize="17dp"
-        app:layout_constraintTop_toBottomOf="@+id/password"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="17dp" />
-
     <TextView
         android:id="@+id/resetpassword"
         android:layout_width="378dp"
@@ -112,12 +100,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/view"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="24dp"
         android:text="Criar uma conta"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="17dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnlogin"
         tools:ignore="MissingConstraints" />
