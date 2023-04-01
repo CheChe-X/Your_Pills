@@ -89,7 +89,6 @@ public class RegisterActivity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
 
-
                     //a criação das strings
                     String nome, conta, numero, idade, password2, repassword;
                     //está linha define as variaveis que são armazenas na criação do utilizador
@@ -99,6 +98,8 @@ public class RegisterActivity extends AppCompatActivity {
                     idade= (midade.getText().toString().trim());
                     password2 = (mpassword.getText().toString().trim());
                     repassword = (mrepassword.getText().toString().trim());
+
+
 
                     //este if vai fazer com que quando não escrever no campo lhe vai aparecer uma mensagem de erro
                     if (nome.isEmpty()) {
@@ -161,10 +162,6 @@ public class RegisterActivity extends AppCompatActivity {
 
                                                         //este código serve para mandar um email de verificação ao utilizador
                                                         if (user.isEmailVerified()){
-                                                            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                                                            startActivity(intent);
-                                                            finish();
-                                                        }else{
                                                             user.sendEmailVerification();
                                                             //mensagem para avisar
                                                             Toast.makeText(RegisterActivity.this, "Verifique o seu email para verificar o seu email", Toast.LENGTH_SHORT).show();

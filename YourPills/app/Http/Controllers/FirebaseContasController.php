@@ -1,12 +1,13 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
+
 use Kreait\Firebase;
 use Kreait\Firebase\Factory;
- 
-class FirebaseController extends Controller
+
+class FirebaseContasController extends Controller
 {
     public function index()
     {
@@ -16,11 +17,11 @@ class FirebaseController extends Controller
  
         $database = $firebase->createDatabase();
  
-        $blog = $database
+        $conta = $database
         ->getReference('Users');
  
         echo '<pre>';
-        print_r($blog->getvalue());
+        print_r($conta->getvalue());
         echo '</pre>';
     }
 }

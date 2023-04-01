@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FirebaseController;
+use App\Http\Controllers\FirebaseContasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,14 @@ use App\Http\Controllers\FirebaseController;
 |
 */
 
+Route::get('api/utilizadores', [FirebaseContasController::class, 'index'])->name('firebase.index');
+
 Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/criar_conta', function () {
-    return view('criar_conta');
+Route::get('/login', function () {
+    return view('login');
 });
 
 Route::get('/comprimidos', function () {
@@ -37,5 +39,3 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
-
-Route::get('get-firebase-data', [FirebaseController::class, 'index'])->name('firebase.index');

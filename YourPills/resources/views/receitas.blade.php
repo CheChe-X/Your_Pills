@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Depatments</title>
+      <title>Blog</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -42,10 +42,11 @@
               
               <li class="nav-item">
                 <a class="nav-link" href="/comprimidos">Comprimidos</a>
+<li class="nav-item">
+                <a class="nav-link" href="/receitas">Receitas</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/criar_conta">Criar Conta</a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="/about">Sobre Nós</a>
               </li>
@@ -57,7 +58,7 @@
               </li>
               <li class="nav-item active">
                 <a class="nav-link" href="#">Conta</a>
-              </li>               
+              </li>          
             </ul>
           </div>
         </nav>
@@ -69,51 +70,70 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent2">
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
-                <a class="nav-link" href="/">Página Principal</a>
-              </li>
-              
-              <li class="nav-item">
-                <a class="nav-link" href="depatments.html">Comprimidos</a>
+                <a class="nav-link" href="/">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="blog.html">Receitas</a>
+                <a class="nav-link" href="/about">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/about">Sobre Nós</a>
+                <a class="nav-link" href="doctor.html">Doctor</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/contact">Contacto</a>
+                <a class="logo_main" href="index.html"><img src="images/logo.png"></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="depatments.html">Depatments</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="blog.html">Blog</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/contact">Contact</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Conta</a>
-              </li>            
+                <a class="nav-link" href="#">LOGIN</a>
+              </li>              
             </ul>
           </div>
         </nav>
       </div>
       <!-- header section end -->
-      <!-- care section start -->
-      <div class="care_section layout_padding">
-        <div class="container-fluid">
+      <!-- services section start -->
+      <div class="services_section layout_padding padding_bottom_0">
+        <div class="container">
+          <h1 class="blog_text">Blog</h1>
           <div class="row">
-            <div class="col-md-6">
-              <div class="image_3" href="#"><img src="images/img-3.png"></div>
+            <div class="col-lg-4">
+              <div class="call_box">
+                <div class="call_image"><img src="images/call-icon.png"></div>
+                <h2 class="emergency_text">Emergency Cases</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
+              </div>
             </div>
-            <div class="col-md-6">
-              <div class="care_taital">
-                <h4 class="finest_text">Finest Patient</h4>
-                <h1 class="care_text">Care & Amenities</h1>
-                <p class="ipsum_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,tempor Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,</p>
-                <div class="read_bt_2"><a href="#">Read More</a></div>
+            <div class="col-lg-4">
+              <div class="call_box active">
+                <div class="call_image"><img src="images/time-seat-icon.png"></div>
+                <h2 class="emergency_text">Doctors timetable</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
+              </div>
+            </div>
+            <div class="col-lg-4">
+              <div class="call_box">
+                <div class="call_image"><img src="images/watch-icon.png"></div>
+                <h2 class="emergency_text">Opening hours</h2>
+                <h1 class="call_text">1-800-400-5768</h1>
+                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <!-- care section end -->
+      <!-- services section end -->
       <!-- footer section start -->
       <!-- info section -->
       <div class="info_section layout_padding">

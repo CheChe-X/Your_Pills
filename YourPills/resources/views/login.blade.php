@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Blog</title>
+      <title>Doctor</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -42,10 +42,11 @@
               
               <li class="nav-item">
                 <a class="nav-link" href="/comprimidos">Comprimidos</a>
+<li class="nav-item">
+                <a class="nav-link" href="/receitas">Receitas</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="/criar_conta">Criar Conta</a>
               </li>
+              
               <li class="nav-item">
                 <a class="nav-link" href="/about">Sobre Nós</a>
               </li>
@@ -56,8 +57,8 @@
                 <a class="nav-link" href="#"><img src="images/search-icon.png"></a>
               </li>
               <li class="nav-item active">
-                <a class="nav-link" href="#">Conta</a>
-              </li>          
+                <a class="nav-link" href="/login">Conta</a>
+              </li>                        
             </ul>
           </div>
         </nav>
@@ -99,40 +100,42 @@
           </div>
         </nav>
       </div>
+      
       <!-- header section end -->
-      <!-- services section start -->
-      <div class="services_section layout_padding padding_bottom_0">
+      <!-- doctor section start -->
+      <div class="doctor_section layout_padding">
         <div class="container">
-          <h1 class="blog_text">Blog</h1>
+        <form>
+  <div class="form-group">
+    <label >Endereço de email</label>
+    <input type="email" class="form-control" placeholder="Enter email">
+    
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" class="form-control" placeholder="Password">
+    <small class="form-text text-muted">A sua palavra-passe está segura.</small>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Login</button>
+</form>
           <div class="row">
-            <div class="col-lg-4">
-              <div class="call_box">
-                <div class="call_image"><img src="images/call-icon.png"></div>
-                <h2 class="emergency_text">Emergency Cases</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
+            <div class="col-md-6 padding_top0">
+              <h4 class="about_text">Best Laboratory</h4>
+                <h1 class="highest_text">Tests Available</h1>
+                <p class="lorem_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur </p>
+                <div class="read_main">
+                  <div class="read_bt"><a href="#">Read More</a></div>
+                </div>
             </div>
-            <div class="col-lg-4">
-              <div class="call_box active">
-                <div class="call_image"><img src="images/time-seat-icon.png"></div>
-                <h2 class="emergency_text">Doctors timetable</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="call_box">
-                <div class="call_image"><img src="images/watch-icon.png"></div>
-                <h2 class="emergency_text">Opening hours</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
+            <div class="col-md-6">
+              <div class="image_4"><img src="images/img-4.png"></div>
             </div>
           </div>
         </div>
       </div>
-      <!-- services section end -->
+      
+      <!-- doctor section end -->
       <!-- footer section start -->
       <!-- info section -->
       <div class="info_section layout_padding">
