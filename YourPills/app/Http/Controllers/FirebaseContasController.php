@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Kreait\Firebase;
 use Kreait\Firebase\Factory;
 
-class FirebaseContasController extends Controller
+class FirebaseUtilizadoresController extends Controller
 {
     public function index()
     {

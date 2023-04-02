@@ -2,6 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseContasController;
+use App\Http\Controllers\FirebaseUtilizadoresController;
+use App\Http\Controllers\ComprimidoCrudController;
+use App\Http\Controllers\FirestoreComprimidosController;
+use App\Http\Controllers\FirestoreReceitasController;
+use GPBMetadata\Google\Firestore\V1Beta1\Firestore;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,23 +19,18 @@ use App\Http\Controllers\FirebaseContasController;
 |
 */
 
-Route::get('api/utilizadores', [FirebaseContasController::class, 'index'])->name('firebase.index');
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('home');
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::resource('crudcomprimidos', ComprimidoCrudController::class);
+Route::get('/crudcomprimidos/create', [ComprimidoCrudController::class, 'create'])->name('crudcomprimidos.create');
 
-Route::get('/comprimidos', function () {
-    return view('comprimidos');
-});
+Route::get('/utilizadores', [FirebaseUtilizadoresController::class, 'index'])->name('utilizadores');
+Route::get('/comprimidos', [FirestoreComprimidosController::class, 'index'])->name('comprimidos');
+Route::get('/receitas', [FirestoreReceitasController::class, 'index'])->name('receitas');
 
-Route::get('/receitas', function () {
-    return view('receitas');
-});
 
 Route::get('/about', function () {
     return view('about');
@@ -38,4 +38,14 @@ Route::get('/about', function () {
 
 Route::get('/contact', function () {
     return view('contact');
+});
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
 });
