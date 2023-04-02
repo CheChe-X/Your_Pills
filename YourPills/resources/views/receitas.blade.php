@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Blog</title>
+      <title>Receitas</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -104,33 +104,29 @@
       <!-- services section start -->
       <div class="services_section layout_padding padding_bottom_0">
         <div class="container">
-          <h1 class="blog_text">Blog</h1>
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="call_box">
-                <div class="call_image"><img src="images/call-icon.png"></div>
-                <h2 class="emergency_text">Emergency Cases</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="call_box active">
-                <div class="call_image"><img src="images/time-seat-icon.png"></div>
-                <h2 class="emergency_text">Doctors timetable</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="call_box">
-                <div class="call_image"><img src="images/watch-icon.png"></div>
-                <h2 class="emergency_text">Opening hours</h2>
-                <h1 class="call_text">1-800-400-5768</h1>
-                <p class="dolor_text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod  </p>
-              </div>
-            </div>
-          </div>
+          <h1 class="blog_text">Receitas</h1>
+          <table class="table">
+        <thead>
+            <tr>
+                <th>Nome da Receita</th>
+                <th>Nº De Utente</th>
+                <th>Forma Farmaceutica</th>
+                <th>Dosagem</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($data as $item)
+            <tr>
+                <td>{{ $item['nome_receita'] }}</td>
+                <td>{{ $item['n_utente'] }}</td>
+                <td>{{ $item['forma_farmaceutica'] }}</td>
+                <td>{{ $item['dosagem'] }}</td>
+                <td>{{ $item['data'] }}</td>
+            </tr>
+            @endforeach
+        </tbody>
+    </table>
         </div>
       </div>
       <!-- services section end -->

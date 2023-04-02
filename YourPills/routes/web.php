@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseContasController;
 use App\Http\Controllers\FirebaseUtilizadoresController;
 use App\Http\Controllers\FirestoreComprimidosController;
+use App\Http\Controllers\FirestoreReceitasController;
 use GPBMetadata\Google\Firestore\V1Beta1\Firestore;
 
 /*
@@ -25,10 +26,8 @@ Route::get('/', function () {
 
 Route::get('/utilizadores', [FirebaseUtilizadoresController::class, 'index'])->name('utilizadores');
 Route::get('/comprimidos', [FirestoreComprimidosController::class, 'index'])->name('comprimidos');
+Route::get('/receitas', [FirestoreReceitasController::class, 'index'])->name('receitas');
 
-Route::get('/receitas', function () {
-    return view('receitas');
-});
 
 Route::get('/about', function () {
     return view('about');
