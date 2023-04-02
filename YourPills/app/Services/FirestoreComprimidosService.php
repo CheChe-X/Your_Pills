@@ -19,4 +19,9 @@ class FirestoreComprimidosService
     {
         return $this->db;
     }
+
+    public function create(array $data)
+    {
+        $this->db->collection('Comprimidos')->add($data);
+    }
 }

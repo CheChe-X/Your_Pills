@@ -52,14 +52,17 @@
             <a class="nav-link" href="/contact">Contacto</a>
           </li>
 
-
+          @if(Auth::user())
           <li class="nav-item">
             <a class="nav-link" href="/comprimidos">Comprimidos</a>
           <li class="nav-item">
             <a class="nav-link" href="/receitas">Receitas</a>
           </li>
-
-          @if(Auth::user())
+            @if (auth()->user()->email === "admin@gmail.com")
+            <li class="nav-item">
+            <a class="nav-link" href="/dashboard">Administração</a>
+            </li>
+            @endif
           <li class="nav-item">
             <form method="POST" id="logout-form" action="{{ route('logout') }}" x-data>
               @csrf
@@ -126,7 +129,7 @@
                 <div class="banner_bg">
                   <div class="banner_taital_main">
                     <h1 class="banner_taital"> Reservatório de medicamentos e informação
-                      <p class="long_text">Facilidade de acesso às receitas e medicamentos: Com a funcionalidade de guardar as receitas e a rotina de medicamentos no próprio celular, o utilizador tem mais facilidade de acesso às informações, o que pode ser especialmente útil para idosos</p>
+                      <p class="long_text">Facilidade de acesso às receitas e medicamentos: Com a funcionalidade de guardar as receitas e a rotina de medicamentos no próprio telemóvel, o utilizador tem mais facilidade de acesso às informações, o que pode ser especialmente útil para idosos</p>
                       <div class="btn_main">
                         <div class="about_us"><a href="#">Sobre Nós</a></div>
                       </div>
