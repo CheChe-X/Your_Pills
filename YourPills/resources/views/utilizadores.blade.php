@@ -31,21 +31,28 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 </head>
 
-<div class="container">
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($data as $item)
-            <tr>
-                <td>{{ $item['nome'] }}</td>
+<body>
 
-            </tr>
-            @endforeach
-        </tbody>
-    </table>
-</div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Conta</th>
+      <th>Idade</th>
+      <th>Numero</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    @foreach($utilizadores as $utilizador)
+    <tr>
+      <td>{{ $utilizador['nome'] }}</td>
+      <td>{{ $utilizador['conta'] }}</td>
+      <td>{{ $utilizador['idade'] }}</td>
+      <td>{{ $utilizador['numero'] }}</td>
+    </tr>
+    @endforeach
+  </tbody>
+  
+</table>
+</body>
