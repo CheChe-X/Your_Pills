@@ -4,15 +4,13 @@ package com.example.yourpills;
 //e a classe comprimido vai ter as variaveis nome embalagens miligramas medicamentos e data
 public class comprimido {
 
-    public String id, nome, embalagens, miligramas, medicamentos, data;
-
+    public String nome, embalagens, miligramas, medicamentos, data;
     public comprimido(){
         super();
     }
 
     //e vai ter cinco variáveis chamadas nome, miligramas, embalagens, medicamentos e data
-    public comprimido(String id, String nome, String miligramas, String embalagens, String medicamentos, String data){
-        this.id = id;
+    public comprimido(String nome, String miligramas, String embalagens, String medicamentos, String data){
         this.nome = nome;
         this.miligramas = miligramas;
         this.medicamentos = medicamentos;
@@ -25,13 +23,6 @@ public class comprimido {
     //e assim estes métodos permitem que outras classes tenham acesso e possam modificar
 
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
 
     public String getNome() {
         return nome;
