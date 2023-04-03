@@ -1,11 +1,17 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Services\FirestoreReceitasService;
+use App\Models\Receita;
 use Illuminate\Http\Request;
 
 class ReceitaCrudController extends Controller
 {
+    protected $firestore;
+
+    public function __construct(FirestoreReceitasService $firestore){
+        $this->firestore = $firestore;
+    }
     /**
      * Display a listing of the resource.
      */
@@ -19,7 +25,7 @@ class ReceitaCrudController extends Controller
      */
     public function create()
     {
-        //
+        return view('receitas.create');
     }
 
     /**
@@ -27,7 +33,17 @@ class ReceitaCrudController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $receita = new Receita;
+        $receita->nome_receita = $request->nome_receita;
+        $receita->n_utente = $request->n_utente;
+        $receita->forma_farmaceutica = $request->forma_farmaceutica;
+        $receita->dosagem = $request->dosagem;
+        $receita->data = $request->data;
+        
+        $data = $receita->toArray();
+        $this->firestore->create($data);
+
+        return redirect()->route('receitas');
     }
 
     /**
