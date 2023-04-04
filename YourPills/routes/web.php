@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FirebaseContasController;
 use App\Http\Controllers\FirebaseUtilizadoresController;
 use App\Http\Controllers\ComprimidoCrudController;
+use App\Http\Controllers\ReceitaCrudController;
 use App\Http\Controllers\FirestoreComprimidosController;
 use App\Http\Controllers\FirestoreReceitasController;
 use GPBMetadata\Google\Firestore\V1Beta1\Firestore;
@@ -25,7 +26,10 @@ Route::get('/', function () {
 })->name('home');
 
 Route::resource('crudcomprimidos', ComprimidoCrudController::class);
+Route::resource('crudreceitas', ReceitaCrudController::class);
+
 Route::get('/crudcomprimidos/create', [ComprimidoCrudController::class, 'create'])->name('crudcomprimidos.create');
+Route::get('/crudreceitas/create', [ReceitaCrudController::class, 'create'])->name('crudreceitas.create');
 
 Route::get('/utilizadores', [FirebaseUtilizadoresController::class, 'index'])->name('utilizadores');
 Route::get('/comprimidos', [FirestoreComprimidosController::class, 'index'])->name('comprimidos');

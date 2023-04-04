@@ -52,7 +52,7 @@
         </p>
 
         <p class="mt-4 text-sm">
-            <a href="https://laracasts.com" class="inline-flex items-center font-semibold text-indigo-700">
+            <a href="/crudreceitas/create" class="inline-flex items-center font-semibold text-indigo-700">
                 Criar Receitas
 
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" class="ml-1 w-5 h-5 fill-indigo-500">

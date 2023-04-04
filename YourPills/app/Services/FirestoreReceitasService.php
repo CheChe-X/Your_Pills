@@ -19,4 +19,8 @@ class FirestoreReceitasService
     {
         return $this->db;
     }
+
+    public function create(array $data){
+        $this->db->collection('Receitas')->add($data);
+    }
 }
