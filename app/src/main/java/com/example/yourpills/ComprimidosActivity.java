@@ -58,8 +58,6 @@ public class ComprimidosActivity extends AppCompatActivity {
         private Button apagar;
         private ProgressDialog progressDialog;
 
-        private String id = "";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +82,7 @@ public class ComprimidosActivity extends AppCompatActivity {
 
         apagar = findViewById(R.id.apagar);
 
+        //com este código vamos chamar a página apagaractivity
         apagar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +92,9 @@ public class ComprimidosActivity extends AppCompatActivity {
             }
         });
 
+        //com este código um loading vai ser exibido a dizer
+        //A Carregar...
+        //Os Comprimidos
         progressDialog = new ProgressDialog(ComprimidosActivity.this);
         progressDialog.setTitle("Carregar...");
         progressDialog.setMessage("Os Comprimidos");
@@ -181,14 +183,5 @@ public class ComprimidosActivity extends AppCompatActivity {
 
     }
 
-    private void deleteComprimidos() {
-        db.collection("Comprimidos").document("id")
-                .delete()
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(ComprimidosActivity.this, "Apagado com Sucesso", Toast.LENGTH_SHORT).show();
-                    }
-                });
-    }
+
 }

@@ -3,9 +3,9 @@ package com.example.yourpills;
 import androidx.annotation.NonNull;
 
 import java.util.Date;
-
+//com este código vamos fazer uma classe java chamada receita
 public class receitas {
-
+    //e a classe receita vai ter todas estas variaveis:
     public String nome_receita, entidade_responsavel, especialidade, designacao_medicamento, forma_farmaceutica,
             n_utente, n_medico, numero_telemovel, n_beneficiario, contacto, dosagem, dimensao_embalagem, numero,
             extenso, validade, data;
@@ -14,6 +14,7 @@ public class receitas {
         super();
     }
 
+    //e estas aqui serao todas as suas variaveis
     public receitas(String nome_receita, String entidade_responsavel, String especialidade, String designacao_medicamento,
                     String forma_farmaceutica, String n_utente, String n_medico, String numero_telemovel, String n_beneficiario,
                     String contacto, String dosagem, String dimensao_embalagem, String numero, String extenso, String validade,
@@ -36,6 +37,10 @@ public class receitas {
         this.n_beneficiario = n_beneficiario;
         this.numero = numero;
     }
+
+    //neste código temos o métodos de acesso "getters" e métodos de atribuição "setters"
+    //em que um dos métodos vai retornar o valor atual de uma variável e o outro vai ser o que define um novo valor
+    //e assim estes métodos permitem que outras classes tenham acesso e possam modificar
 
     public String getNome_receita() {
         return nome_receita;

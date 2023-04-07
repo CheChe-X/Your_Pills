@@ -42,7 +42,7 @@ public class AdicionarRecActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_rec);
-
+        //este código ira procurar no layout o id das variáveis
         nome_receita = findViewById(R.id.nome_receita);
         entidade_responsavel = findViewById(R.id.entidade_responsavel);
         especialidade = findViewById(R.id.especialidade);
@@ -62,13 +62,14 @@ public class AdicionarRecActivity extends AppCompatActivity {
         voltar = findViewById(R.id.voltar3);
         inserir = findViewById(R.id.inserir1);
 
+        //este código vai criar uma conexao com a base de dados da FirebaseFirestore
         db = FirebaseFirestore.getInstance();
 
-
-
+        //este código do botão inserir vai fazer com que
         inserir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //estás strings vão ser definidas como o texto que está contido nos objetos
                 String receita_nome = nome_receita.getText().toString();
                 String numero_utente = n_utente.getText().toString();
                 String numero_medico = n_medico.getText().toString();
@@ -86,6 +87,8 @@ public class AdicionarRecActivity extends AppCompatActivity {
                 String validade1 = validade.getText().toString();
                 String data1 = data.getText().toString();
 
+                //e depois um mapa é chamado com o nome ReceitaDAta em que ele é preenchido com as chaves
+                //e assim com este mapa ele armazena os dados das strings
                 Map<String, String> ReceitaData = new HashMap<>();
                 ReceitaData.put("nome_receita", receita_nome);
                 ReceitaData.put("n_utente", numero_utente);
@@ -104,32 +107,52 @@ public class AdicionarRecActivity extends AppCompatActivity {
                 ReceitaData.put("validade", validade1);
                 ReceitaData.put("data", data1);
 
+                //estes código se eles tiverem vazios vai aparecer uma mensagem a dizer a respectiva mensagem de cada um
                 if(TextUtils.isEmpty(receita_nome)){
-                    Toast.makeText(AdicionarRecActivity.this, "Insira o nome da receita", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdicionarRecActivity.this, "Insira o nome da receita!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(numero_utente)){
-                    Toast.makeText(AdicionarRecActivity.this, "", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AdicionarRecActivity.this, "Insira seu número!", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                if(TextUtils.isEmpty(forma)){
+                    Toast.makeText(AdicionarRecActivity.this, "Insira a forma farmaceutica!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(dosagem1)){
+                    Toast.makeText(AdicionarRecActivity.this, "Insira a dosagem!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(validade1)){
+                    Toast.makeText(AdicionarRecActivity.this, "A data de validade é obrigatoria!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //com este código vai ser usado para adicionar os dados na coleção "Receitas"
                 db.collection("Receitas")
                         .add(ReceitaData)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                             @Override
                             public void onSuccess(DocumentReference documentReference) {
+                                //se os dados forem criados vai exibir uma mensagem a dizer "Criada!"
                                 Toast.makeText(AdicionarRecActivity.this, "Criada!", Toast.LENGTH_SHORT).show();
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+                                //e se caso deia um erro ele vai exibir este mensagem
                                 Toast.makeText(AdicionarRecActivity.this, "Erro!", Toast.LENGTH_SHORT).show();
                             }
                         });
             }
         });
 
+        //este código de este botão vai chamar o ComprimidosAcitivity
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

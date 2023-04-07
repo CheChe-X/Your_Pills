@@ -22,8 +22,6 @@ public class comprimido {
     //em que um dos métodos vai retornar o valor atual de uma variável e o outro vai ser o que define um novo valor
     //e assim estes métodos permitem que outras classes tenham acesso e possam modificar
 
-
-
     public String getNome() {
         return nome;
     }

@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     //estes códigos são referencias aos campos do layout
     private EditText memail, mpassword;
-    private Button singin, user_telemovel;
+    private Button singin;
     private TextView singup, resetpassword,voltar;
 
     //este código cria uma instancia da FirebaseAuth

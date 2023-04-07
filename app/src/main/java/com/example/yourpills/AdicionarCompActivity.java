@@ -14,6 +14,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,12 +43,11 @@ import java.util.Map;
 
 public class AdicionarCompActivity extends AppCompatActivity {
 
-    //este codigo declara varios campos de texto
+    //este código declara vários campos de texto
     private EditText name_comp, mil_comp, med_comp, emb_comp, data_comp;
-    private DatePickerDialog.OnDateSetListener getmDateSetListener;
-    //este codigo vai declarar dois botoes
+    //este código vai declarar dois botões
     private Button inserir, voltar;
-    //esta classe db vai representar a base de dados da FirebaseFirestore
+    //está classe db vai representar a base de dados da FirebaseFirestore
     private FirebaseFirestore db;
 
     @Override
@@ -55,7 +55,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adicionar_comp);
 
-        // este código ira procurar no layout o id das variaveis
+        //este código ira procurar no layout o id das variáveis
         name_comp = findViewById(R.id.name_comp);
         mil_comp = findViewById(R.id.mil_comp);
         med_comp = findViewById(R.id.med_comp);
@@ -64,7 +64,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
         inserir = findViewById(R.id.inserir);
         voltar = findViewById(R.id.voltar2);
 
-        //este codigo de este botao vai chamar o ComprimidosAcitivity
+        //este código de este botão vai chamar o ComprimidosAcitivity
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,25 +73,7 @@ public class AdicionarCompActivity extends AppCompatActivity {
             }
         });
 
-        data_comp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Calendar cal = Calendar.getInstance();
-                int year = cal.get(Calendar.YEAR);
-                int month = cal.get(Calendar.MONTH);
-                int day = cal.get(Calendar.DAY_OF_MONTH);
-
-                DatePickerDialog dialog = new DatePickerDialog(
-                        AdicionarCompActivity.this,
-                        android.R.style.Theme_Holo_Light_Dialog_MinWidth,
-                        getmDateSetListener,
-                        year,month,day);
-                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                dialog.show();
-            }
-        });
-
-        //este codigo vai criar uma conexao com a base de dados da FirebaseFirestore
+        //este código vai criar uma conexao com a base de dados da FirebaseFirestore
         db = FirebaseFirestore.getInstance();
 
         //este código do botão inserir vai fazer com que
@@ -113,7 +95,33 @@ public class AdicionarCompActivity extends AppCompatActivity {
                 ComprimidoData.put("embalagens", compembalagens);
                 ComprimidoData.put("data", compdata);
 
-                //com este codigo vai ser usado para adicionar os dados na coleção "Comprimido"
+                //estes código se eles tiverem vazios vai aparecer uma mensagem a dizer a respectiva mensagem de cada um
+                if(TextUtils.isEmpty(compnome)){
+                    Toast.makeText(AdicionarCompActivity.this, "Insira o nome do comprimido!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(compmiligramas)){
+                    Toast.makeText(AdicionarCompActivity.this, "Insira as miligramas do comprimido!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(compembalagens)){
+                    Toast.makeText(AdicionarCompActivity.this, "Quantas embalagens o comprimido tem?", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(compmedicamentos)){
+                    Toast.makeText(AdicionarCompActivity.this, "Insira os quantos medicamentos tem!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(TextUtils.isEmpty(compdata)){
+                    Toast.makeText(AdicionarCompActivity.this, "Insira a data de validade!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                //com este código vai ser usado para adicionar os dados na coleção "Comprimido"
                 db.collection("Comprimidos")
                         .add(ComprimidoData)
                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

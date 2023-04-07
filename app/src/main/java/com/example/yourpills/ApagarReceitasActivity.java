@@ -42,9 +42,17 @@ import java.util.List;
 
 public class ApagarReceitasActivity extends AppCompatActivity {
 
+    //"apagar" é uma variável que armazena um botão (Button)
+    //"voltar" é uma variável que armazena outro botão (Button)
     private Button apagar, voltar;
+
+    //"nomeComprimido" é uma variável que armazena um campo de texto (EditText)
     private EditText namereceita;
+
+    //"db" é uma variável que armazena uma instância do banco de dados do Firestore
     private FirebaseFirestore db;
+
+    //"bottom5" é uma variável que armazena uma instância do BottomNavigationView
     private BottomNavigationView bottom6;
 
     @Override
@@ -53,11 +61,14 @@ public class ApagarReceitasActivity extends AppCompatActivity {
         setContentView(R.layout.activity_apagar_receitas);
 
         db = FirebaseFirestore.getInstance();
+        //com este código ele vai buscar a referência do botão apagar e vai atribuir ao apagar1
         apagar = findViewById(R.id.apagar1);
+        //com este código ele vai buscar a referência do botão nomereceita e vai atribuir ao nameinput1
         namereceita = findViewById(R.id.nameinput1);
-
+        //com este código ele vai buscar a referência do botão voltar e vai atribuir ao voltar4
         voltar = findViewById(R.id.voltar4);
 
+        //com este código vai fazer com que quando o botão voltar for chamado ele vai chamar a página do ReceitasActivity
         voltar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,8 +77,10 @@ public class ApagarReceitasActivity extends AppCompatActivity {
             }
         });
 
+        //com este código ele vai buscar a referência do botão bottom6 e vai atribuir ao BottomMenu6
         bottom6 = findViewById(R.id.BottomMenu4);
 
+        //com este código cada vez que uma pessoa seleciona na barra de navegação ele ira chamar a activity
         bottom6.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
